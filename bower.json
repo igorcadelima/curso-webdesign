@@ -1,0 +1,33 @@
+{
+  "name": "mc-webdesign",
+  "version": "0.0.0",
+  "homepage": "https://github.com/igorcadelima/mc-webdesign",
+  "description": "Coleção de slides usados em aula no curso de Web Design - Programação.",
+  "keywords": [
+    "web design",
+    "javascript",
+    "php",
+    "mysql",
+    "ajax",
+    "xml",
+    "lógica de programação",
+    "c#",
+    "asp.net"
+  ],
+  "authors": [
+    "Igor Conrado Alves de Lima"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.4",
+    "impress.js": "~0.5.3",
+    "google-code-prettify": "~1.0.4"
+  }
+}

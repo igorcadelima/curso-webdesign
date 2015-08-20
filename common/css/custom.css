@@ -1,0 +1,81 @@
+@import '../bower_components/google-code-prettify/src/prettify.css';
+html {
+  overflow: hidden;
+  font-family: sans-serif;
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+a {
+  color: #64caff;
+  text-decoration: none;
+}
+.step {
+  width: 1200px;
+  opacity: 1;
+  padding: 30px 50px;
+  color: #fff;
+  background: #272727;
+}
+ul,
+ol {
+  padding-left: 1em;
+  list-style: square;
+}
+ul li,
+ol li {
+  margin-bottom: 0.25em;
+}
+.note {
+  font-size: ms(7);
+  color: #aaa;
+}
+.center {
+  text-align: center;
+}
+code {
+  background: #444;
+  border-color: #888;
+  padding: 5px 10px;
+  font-size: ms(7);
+  color: #57c6ff;
+}
+pre code {
+  background: none;
+  border: 0;
+  padding: 20px 25px;
+  display: block;
+  font-size: ms(6);
+  line-height: ms(9);
+}
+.css,
+.html {
+  color: #cc4c2b;
+  font-weight: bold;
+}
+.css .hljs-class,
+.html .hljs-class,
+.css .hljs-title,
+.html .hljs-title {
+  color: #a1db52;
+  font-weight: normal;
+}
+.css .hljs-tag,
+.html .hljs-tag,
+.css .hljs-attribute,
+.html .hljs-attribute {
+  color: #64caff;
+  font-weight: normal;
+}
+.css .hljs-attr_selector,
+.html .hljs-attr_selector,
+.css .hljs-value,
+.html .hljs-value,
+.css .hljs-value .hljs-number,
+.html .hljs-value .hljs-number {
+  color: #f9d57d;
+}
+.css .hljs-id,
+.html .hljs-id {
+  color: #4c7318;
+  font-weight: normal;
+}

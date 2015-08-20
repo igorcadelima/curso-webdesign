@@ -1,0 +1,8 @@
+#Node files
+/node_modules
+
+#Bower files
+/common/bower_components
+
+#Git config
+/.git

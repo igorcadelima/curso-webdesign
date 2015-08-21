@@ -26,14 +26,5 @@ build/Release
 # https://www.npmjs.org/doc/misc/npm-faq.html#should-i-check-my-node_modules-folder-into-git
 node_modules
 
-#Bower files
-/common/bower_components
-
-#Git config
-/.git
-
-#Bower files
-/common/bower_components
-
-#Git config
+# Git config
 /.git

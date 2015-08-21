@@ -1,0 +1,188 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=1024">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Lógica de programação</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../common/css/tomorrow_night_eighties.css">
+    <link href="../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>Lógica de programação</h1>
+        <p>
+          Aula 01 - Introdução à Lógica de Programação
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h1>Quem sou eu?</h1>
+        <ul>
+          <li>
+            Graduando em Ciência da Computação pela Universidade Federal de Alagoas (UFAL)
+          </li>
+          <li>
+            Professor de Inglês e Web Design na Microcamp
+          </li>
+          <li>
+            Densenvolvedor Web (front-end e back-end)
+          </li>
+          <li>
+            Fiz graduação sanduíche pela Australian National University (ANU)
+          </li>
+          <li>
+            Fui estagiário de verão na Commonwealth Scientific and Industrial Research Organisation (CSIRO), agência governamental de pesquisa da Austrália
+          </li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Conteúdo da aula</h2>
+        <ul>
+          <li>Definições de Lógica</li>
+          <li>Lógica de programação?</li>
+          <li>Sequência lógica</li>
+          <li>Algoritmo</li>
+          <li>Programas de computador</li>
+          <li>Exercícios</li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <h2>Definições de lógica</h2>
+        <h3>Lógica Aristotélica</h3>
+        <p><i>"conjunto de estudos que visa determinar os processos intelectuais que são as condições gerais do conhecimento verdadeiro"</i></p>
+        <pre>
+          Todo <strong>homem</strong> é mortal.
+          Sócrates é <strong>homem</strong>.
+          Logo, <i>Sócrates é mortal</i>.
+        </pre>
+      </div>
+      
+      <div class="step basic">
+        <h2>Definição de lógica</h2>
+        <h3>Outras definições</h3>
+        <ul>
+          <li><i>"é a seqüência coerente, regular e necessária de acontecimentos, de coisas ou fatos"</i> - Dicionário Aurélio</li>
+          <li><i>"é a maneira do raciocínio particular que cabe a um indivíduo ou a um grupo" - Dicionário Aurélio</i></li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <h2>Definição de lógica</h2>
+        <h3>Em resumo</h3>
+        <ul>
+          <li><i>"Lógica é a ciência que estuda as leis e critérios de validade que regem o pensamento e a demonstração, ou seja, ciência dos princípios formais do raciocínio" - (Manzano, 2000)</i></li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <p>Mas...</p>
+        <h1 align="center">O que é lógica de programação?</h1>
+        <br>
+      </div>
+      
+      <div class="step basic">
+        <p align="center"><strong><i>Lógica de programação é a técnica de desenvolver e encadear sequências lógicas de pensamento para atingir um determinado objetivo.</i></strong></p>
+      </div>
+
+      <div class="step basic">
+        <h2>Sequência lógica</h2>
+        <p><i>"É um conjunto de passos executados até atingir um objetivo ou solução de problema."</i></p>
+      </div>
+      
+      <div class="step basic">
+        <h2>Instruções</h2>
+        <ul>
+          <li>Normalmente: conjunto de regras ou normas bem definidas para a realização ou emprego de algo</li>
+          <li>Em Informática: são ações elementares a serem executadas em um computador (ex.: adição)</li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <h2>Como se acender uma boca de fogão?</h2>
+        <ol>
+          <li>Pega a caixa de fósforos</li>
+          <li>Abre a caixa</li>
+          <li>Retira um palito</li>
+          <li>Fecha a caixa</li>
+          <li>Risca o fósforo na parte indicada na caixa</li>
+          <li>Direciona o palito na boca do fogão</li>
+          <li>Gira o botão do fogão da boca correspondente</li>
+          <li>Apaga o fósforo</li>
+        </ol>
+      </div>
+      
+      <div class="step basic">
+        <h2>Algoritmo</h2>
+        <p>Um algoritmo é uma sequência finita de instruções bem definidas e não ambíguas, cada uma das quais pode ser executada mecanicamente em um período de tempo finito e com uma quantidade de esforço finita.</p>
+        <p>Por exemplo:</p>
+        <ul>
+          <li>Operações matemáticas básicas (adição, subtração, multiplicação, divisão)</li>
+          <li>Receita de bolo</li>
+          <li>Acender uma boca de fogão</li>
+          <li>etc.</li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <h2>Como multiplicar dois números?</h2>
+        <p align="center">
+          <img src="img/multiplicacao.png" alt="Multiplicação de dois números">
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2>Algoritmo: multiplicação de dois números</h2>
+        <ol>
+          <li>Escreva o primeiro número no retângulo A</li>
+          <li>Escreva o segundo número no retângulo B</li>
+          <li>Multiplique o número do retângulo A pelo número do retângulo B e coloque o resultado no retângulo Resultado</li>
+        </ol>
+        <p align="center">
+          <img src="img/multiplicacao.png" alt="Multiplicação de dois números">
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2 align="center">O que são programas de computador?</h2>
+      </div>
+      
+      <div class="step basic" align="center">
+        <h2>O que são programas de computador?</h2>
+        <p>Programas são algoritmos escritos numa linguagem de programação (JavaScript, PHP, C#, Action Script, entre outras) e que são interpretados e executados por uma máquina, no caso um computador.</p>
+      </div>
+      
+      <div id="exercicio" class="step" data-x="2000" data-y="16000" data-rotate="90" data-scale="2" align="center">
+        <h1>Hora de exercitar!</h1>
+        <img src="img/baby-meme.jpg" alt="">
+      </div>
+   
+    </div>
+
+    <script src="../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../common/js/custom.js"></script>
+
+  </body>
+</html>

@@ -81,3 +81,15 @@ pre code {
   color: #4c7318;
   font-weight: normal;
 }
+.centre {
+  text-align: center;
+}
+.leftTabbed {
+  margin-left: 1em;
+}
+.halfWidth {
+  width: 50%;
+}
+.halfHeight {
+  height: 50%;
+}

@@ -1,0 +1,329 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Lógica de programação</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>Lógica de programação</h1>
+      <p>
+        Aula 02 - Tipos de dados e Instruções primitivas
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Computadores, problemas e soluções</h2>
+      <ul>
+        <li>Computadores foram feitos para solucionar problemas</li>
+        <li>Problemas são solucionados manipulando dados e instruções</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados</h2>
+      <p>Computadore são capazes de processar três tipos básicos de dados:</p>
+      <ul>
+        <li>Dados numéricos (inteiros e reais);</li>
+        <li>Dados caracteres;</li>
+        <li>Dados lógicos.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados: Inteiros</h2>
+      <ul>
+        <li>São caracterizados como tipos inteiros os dados numéricos positivos ou negativos, excluindo-se destes qualquer número fracionário.</li>
+        <li>Por exemplo: 35, 0, -56, etc.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados: Reais</h2>
+      <ul>
+        <li>São caracterizados como tipos reais os dados numéricos positivos, negativos e números fracionários.</li>
+        <li>Por exemplo: 35.0, 0.0, -56, 1.2, -45.897, etc.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados: Literais</h2>
+      <ul>
+        <li>São caracterizados como tipos literais às seqüências contendo letras, números e símbolos especiais.</li>
+        <li>Também conhecido como alfanumérico, string, caracter ou cadeia. </li>
+        <li>
+          <p>Por exemplo:</p>
+          <ul>
+            <li>"Microcamp Tecnologia"</li>
+            <li>"Web design"</li>
+            <li>"R. São Francisco, 625 - Centro"</li>
+            <li>"Fone:(82) 3481-6699"</li>
+            <li>etc.</li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados: Lógicos</h2>
+      <ul>
+        <li>São caracterizados como tipos lógicos os dados com valores <b>verdadeiro</b> e <b>falso</b>.</li>
+        <li>Também conhecido como <b>tipo booleano</b>.</li>
+      </ul>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Variáveis</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Variáveis</h2>
+      <p>Definição: Tudo aquilo que é sujeito a variações, que é incerto, instável ou inconstante.
+      </p>
+      <p>Todo dado a ser armazenado na memória de um computador deve ser previamente identificado.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Variáveis: Analogia</h2>
+      <ul>
+        <li>Imagine que a memória do computador é um grande arquivo com várias gavetas;</li>
+        <li>Cada gaveta pode apenas armazenar um único valor (seja ele numérico, lógico ou caractere);</li>
+        <li><b>Como podemos saber o que cada gaveta contém?</b></li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Variáveis: Regras de uso</h2>
+      <ul>
+        <li>Nomes de uma variável poderão ser atribuídos com um ou mais caracteres;
+        </li>
+        <li>O primeiro caractere do nome de uma variável sempre deverá ser uma letra;
+        </li>
+        <li>O nome de uma variável não poderá possuir espaços em branco;
+        </li>
+        <li>O nome de uma variável não poderá ser uma palavra reservada (uma instrução ou comando);
+        </li>
+        <li>Não poderão ser utilizados outros caracteres a não ser letras não-especiais, números e sublinhado.
+        </li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Variáveis: Regras de uso</h2>
+      <p>Nomes <b>válidos</b>:</p>
+      <ul>
+        <li>NOMEDOUSUARIO, telefone, x, z, delta_25, z1, etc.</li>
+      </ul>
+      <p>Nomes <b>inválidos</b>:</p>
+      <ul>
+        <li>NOME DO USUARIO, 25_delta, telefone#, escreva, etc.</li>
+      </ul>
+      <p class="note">*<b>escreva</b> é uma palavra reservada no Portugol</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Variáveis: Papéis</h2>
+      <p><b>Ação</b>: quando modificada ao longo de um programa para apresentar um determinado resultado.</p>
+      <p><b>Controle</b>: quando “vigiada” e controlada durante a execução de um programa.
+      </p>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Constantes</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Constantes</h2>
+      <p>Definição: tudo aquilo que é fixo ou estável.</p>
+      <p>Por exemplo, o valor <b>1.23</b> na seguinte fórmula:</p>
+      <pre>RESULTADO <- ENTRADA * 1.23</pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Operadores Aritméticos</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Operadores Aritméticos</h2>
+      <p>Necessário para realizar operações aritméticas com constantes* e variáveis*.</p>
+
+      <p class="note">*Desde que seja do tipo real ou inteiro.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operadores Aritméticos</h2>
+      <p class="centre">
+        <img src="img/operadores-aritmeticos.jpg" alt="Operadores Aritméticos">
+      </p>
+      <p class="note">*A tabela segue a prioridade matemática entre os operadores.</p>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Expressões Aritméticas</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Expressões Aritméticas</h2>
+      <p>Considere a expressão</p>
+      <p class="centre"><code>X = { 43 . [ 55 : ( 30 + 2 ) ] }</code></p>
+      <p>Em Portugol, essa expressão seria representada como</p>
+      <p class="centre"><code>X <- ( 43 * ( 55 / ( 30 + 2 ) ) )</code></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Expressões Aritméticas</h2>
+      <p>Como faríamos para representar em Portugol a fórmula da área de uma circunferência?</p>
+      <p class="centre"><code>AREA = π.RAIO<sup>2</sup></code></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Expressões Aritméticas</h2>
+      <p>Em Portugol, <code>AREA = π.RAIO<sup>2</sup></code> seria:</p>
+      <p class="centre"><code>AREA <- 3.14159 * RAIO * RAIO</code></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Expressões Aritméticas</h2>
+      <p>E se tivéssemos que efetuar o cálculo da área de um triângulo, em que é necessário efetuar a multiplicação da base pela altura e em seguida dividir pela constante 2, como ficaria?</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Expressões Aritméticas</h2>
+      <p>Em Portugol, a fórmula para calcular a área de um triangulo ficaria</p>
+      <p class="centre"><code>AREA <- (BASE * ALTURA) / 2</code></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Fases fundamentais de um algoritmo</h2>
+      <p><b>ENTRADA: </b>Onde se define a entrada de dados do algoritmo.
+      </p>
+      <p><b>PROCESSAMENTO: </b>Onde os dados de entrada serão processados para a obtenção do resultado final.
+      </p>
+      <p><b>SAÍDA: </b>Onde serão apresentados os dados já processados.</p>
+      <p class="centre">
+        <img src="img/fases-algoritmo.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Fases fundamentais de um algoritmo</h2>
+      <p>Analogia com o homem:</p>
+      <p class="centre">
+        <img class="halfWidth" src="img/fases-algoritmo-analogia.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Instruções Básicas</h2>
+      <p>Instruções são representadas pelo conjunto de palavras-chaves (vocabulário) de uma linguagem de programação.</p>
+      <p>Nossos programas utilizam as instruções <b>leia()</b> (para a entrada de dados) e <b>escreva()</b> (para a saída de dados).</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Instruções Básicas: Simbologia</h2>
+      <p>Instrução <b>leia()</b>:</p>
+      <p class="centre">
+        <img src="img/leia.jpg" alt="">
+      </p>
+      <p>Instrução <b>escreva()</b>:</p>
+      <p class="centre">
+        <img src="img/escreva.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema</h2>
+      <p>Crie um programa que efetue a leitura de dois valores numéricos. Faça a operação de soma entre os dois valores e apresente o resultado obtido.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Ler dois valores, no caso variáveis A e B;</li>
+        <li>Efetuar a soma das variáveis A e B, implicando o seu resultado na variável X;</li>
+        <li>Apresentar o valor da variável X após a operação de soma dos dois valores fornecidos.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre"><img src="img/diagrama-exemplo.jpg" alt=""></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema</h2>
+      <p>Português estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "soma_numeros"
+// Função : Efetuar a soma de dois valores e mostrar o resultado
+// Autor : Igor
+// Data : 26/8/2015
+
+// Seção de Declarações
+var
+  X: inteiro
+  A: inteiro
+  B: inteiro
+  
+<span class="hljs-keyword">inicio</span>
+  // Seção de Comandos
+  leia(A)
+  leia(B)
+  X <- A + B
+  escreva(X)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div id="exercicio" class="step centre" data-x="2000" data-y="4000" data-rotate="90" data-scale="2">
+      <h1>Hora de exercitar!</h1>
+      <img src="img/baby-meme.jpg" alt="">
+    </div>
+
+    <div class="step" data-x="2000" data-y="8000" data-rotate="90" data-scale="2">
+      <h2>Exercícios</h2>
+      <ol>
+        <li>Desenvolver a lógica para um programa que efetue o cálculo da área de uma circunferência, apresentado a medida da área calculada.
+        </li>
+        <li>Construir um programa que efetue o cálculo do salário líquido de um professor. Para fazer este programa, você deverá possuir alguns dados, tais como: valor da hora aula, número de horas trabalhadas no mês e percentual de desconto do INSS. Em primeiro lugar, deve estabelecer qual será o seu salário bruto para efetuar o desconto a ter o valor do salário líquido.
+        </li>
+      </ol>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function () {
+      var y = 1000;
+      $('.step.basic').each(function (i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+
+</html>

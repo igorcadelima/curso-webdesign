@@ -35,7 +35,7 @@
 
     <div class="step basic">
       <h2>Tipos de dados</h2>
-      <p>Computadore são capazes de processar três tipos básicos de dados:</p>
+      <p>Computadores são capazes de processar três tipos básicos de dados:</p>
       <ul>
         <li>Dados numéricos (inteiros e reais);</li>
         <li>Dados caracteres;</li>
@@ -98,11 +98,16 @@
 
     <div class="step basic">
       <h2>Variáveis: Analogia</h2>
-      <ul>
-        <li>Imagine que a memória do computador é um grande arquivo com várias gavetas;</li>
-        <li>Cada gaveta pode apenas armazenar um único valor (seja ele numérico, lógico ou caractere);</li>
-        <li><b>Como podemos saber o que cada gaveta contém?</b></li>
-      </ul>
+      <div style="display: flex;">
+        <ul style="flex: 1;">
+          <li>Imagine que a memória do computador é um grande arquivo com várias gavetas;</li>
+          <li>Cada gaveta pode apenas armazenar um único valor (seja ele numérico, lógico ou caractere);</li>
+          <li><b>Como podemos saber o que cada gaveta contém?</b></li>
+        </ul>
+        <p class="centre" style="flex: 1;">
+          <img src="img/arquivo.png" alt="">
+        </p>
+      </div>
     </div>
 
     <div class="step basic">
@@ -129,16 +134,9 @@
       </ul>
       <p>Nomes <b>inválidos</b>:</p>
       <ul>
-        <li>NOME DO USUARIO, 25_delta, telefone#, escreva, etc.</li>
+        <li>NOME DO USUARIO, 25_delta, telefone#, escreva, verdadeiro, etc.</li>
       </ul>
-      <p class="note">*<b>escreva</b> é uma palavra reservada no Portugol</p>
-    </div>
-
-    <div class="step basic">
-      <h2>Variáveis: Papéis</h2>
-      <p><b>Ação</b>: quando modificada ao longo de um programa para apresentar um determinado resultado.</p>
-      <p><b>Controle</b>: quando “vigiada” e controlada durante a execução de um programa.
-      </p>
+      <p class="note">*<b>escreva</b> e verdadeiro são palavras reservadas no Portugol.</p>
     </div>
 
     <div class="step basic centre">
@@ -169,6 +167,7 @@
         <img src="img/operadores-aritmeticos.jpg" alt="Operadores Aritméticos">
       </p>
       <p class="note">*A tabela segue a prioridade matemática entre os operadores.</p>
+      <p class="note">**O operador de exponenciação também pode ser <b>**</b>.</p>
     </div>
 
     <div class="step basic centre">
@@ -193,6 +192,7 @@
       <h2>Expressões Aritméticas</h2>
       <p>Em Portugol, <code>AREA = π.RAIO<sup>2</sup></code> seria:</p>
       <p class="centre"><code>AREA <- 3.14159 * RAIO * RAIO</code></p>
+      <p>De quais outras formas podemos representar essa expressão em Portugol?</p>
     </div>
 
     <div class="step basic">

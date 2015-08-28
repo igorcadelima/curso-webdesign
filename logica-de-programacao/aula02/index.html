@@ -304,6 +304,94 @@ var
       </ol>
     </div>
 
+
+    <div class="step" data-x="2000" data-y="12000" data-rotate="90" data-scale="2">
+      <h4>Primeiro exercício</h4>
+      <p>Algoritmo</p>
+      <ol>
+        <li>Ler um valor para o raio, no caso variável R;</li>
+        <li>Estabelecer que π possui o valor de 3.14159;</li>
+        <li>Efetuar o cálculo da área, elevando ao quadrado o valor de R e multiplicando por π ;</li>
+        <li>Apresentar o valor da variável A.</li>
+      </ol>
+      <p class="note">A fórmula para o cálculo da área passará a ser escrita como: A
+        <- 3.14159 * R^2.</p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="16000" data-rotate="90" data-scale="2">
+      <h4>Primeiro exercício</h4>
+      <p>Diagrama de blocos</p>
+      <p class="centre">
+        <img src="img/diagrama-exemplo-1.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="20000" data-rotate="90" data-scale="2">
+      <h4>Primeiro exercício</h4>
+      <p>Português estruturado</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "area_circulo"
+// Função : Calcula a area de uma circunferencia
+// Autor : Igor
+// Data : 28/8/2015
+
+// Seção de Declarações
+var
+  A: <b>real</b>
+  R: <b>real</b>
+  
+<span class="hljs-keyword">inicio</span>
+  // Seção de Comandos
+  <b>leia</b>(R)
+  A <- 3.114159*R^2
+  <b>escreva</b>(A)
+<span class="hljs-keyword">fimalgortimo</span>
+</code></pre>
+    </div>
+
+    <div class="step" data-x="2000" data-y="24000" data-rotate="90" data-scale="2">
+      <h4>Segundo exercício</h4>
+      <p>Algoritmo</p>
+      <ol>
+        <li>Estabelecer a leitura da variável HT (horas trabalhadas no mês);</li>
+        <li>Estabelecer a leitura da variável VH (valor hora aula);</li>
+        <li>Estabelecer a leitura da variável PD (percentual de desconto);</li>
+        <li>Calcular o salário bruto (SB), sendo este a multiplicação das variáveis HT e VH;</li>
+        <li>Calcular o total de desconto (TD) com base no valor de PD dividido pro 100;</li>
+        <li>Calcular o salário líquido (SL), deduzindo o desconto do salário bruto;</li>
+        <li>Apresentar os valores dos salários bruto e líquido: SB e SL.</li>
+      </ol>
+    </div>
+
+    <div class="step" data-x="2000" data-y="28000" data-rotate="90" data-scale="2">
+      <h4>Segundo exercício</h4>
+      <p>Diagrama de blocos</p>
+      <p class="centre">
+        <img src="img/diagrama-exemplo-2.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="32000" data-rotate="90" data-scale="2">
+      <h4>Segundo exercício</h4>
+      <p>Português estruturado</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Salario_Professor"
+      
+var
+  HT: inteiro
+  VH, PD, TD, SB, SL: real
+  
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(HT)
+  <b>leia</b>(VH)
+  <b>leia</b>(PD)
+  SB <- HT * VH 
+  TD <- (PD/100) * SB 
+  SL <- SB - TD 
+  <b>escreva</b>(SB)
+  <b>escreva</b>(SL)
+<span class="hljs-keyword">fimalgortimo</span>
+</code></pre>
+    </div>
+
   </div>
 
   <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>

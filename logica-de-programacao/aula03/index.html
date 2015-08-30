@@ -1,0 +1,445 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Lógica de programação</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>Lógica de programação</h1>
+      <p>
+        Aula 03 - Estruturas de controle: decisão
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Desvio condicional simples</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples</h2>
+      <p>Linguagens de programação normalmente oferecem instruções que servem para tratar o fluxo de programas para diferentes condições.</p>
+      <p>Em Português Estruturado nós temos:</p>
+      <pre>
+      <b>se</b> (<span class="hljs-tag">&lt;</span><span style="font-weight: normal !important;"><span class="hljs-tag"><span class="hljs-attribute">condição</span></span></span><span class="hljs-tag">&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição verdadeira</span>&gt;</span>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples</h2>
+      <p>A mesma instrução em diagrama de blocos fica assim:</p>
+      <p class="centre halfHeight">
+        <img src="img/diagrama-desvio-simples.jpg" alt="" width="35%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples: Exercício</h2>
+      <p>Desenvolva o algoritmo, o respectivo diagrama de blocos e sua codificação em Português Estruturado para resolver o problema de ler dois valores numéricos, efetuar a adição e apresentar o seu resultado caso o valor somado seja maior que 10.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples: Resposta</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Conhecer/receber/ler dois valores incógnitos (estabelecer variáveis A e B);</li>
+        <li>Efetuar a soma dos valores incógnitos A e B, atribuindo o valor da soma para a variável X;</li>
+        <li>Apresentar o valor da soma contido na variável X, caso o valor de X seja maior que 10.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples: Resposta</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-desvio-simples-exemplo-1.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional simples: Resposta</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Soma_numeros"
+
+var
+X, A, B: <b>inteiro</b>
+
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(A)
+  <b>leia</b>(B)
+  X <- A + B
+  <b>se</b> (X>10) <b>entao</b>
+    <b>escreva</b>(X)
+  <b>fimse</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Operadores relacionais</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Operadores relacionais</h2>
+      <div class="centre">
+        <table class="halfWidth" style="margin: auto;">
+          <thead>
+            <tr>
+              <th>Símbolo</th>
+              <th>Significado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>=</td>
+              <td>igual a</td>
+            </tr>
+            <tr>
+              <td>&lt;&gt; , !=</td>
+              <td>diferente de</td>
+            </tr>
+            <tr>
+              <td>&gt;</td>
+              <td>maior que</td>
+            </tr>
+            <tr>
+              <td>&lt;</td>
+              <td>menor que</td>
+            </tr>
+            <tr>
+              <td>&gt;=</td>
+              <td>maior ou igual a</td>
+            </tr>
+            <tr>
+              <td>&lt;=</td>
+              <td>menor ou igual a</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Desvio condicional composto</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto</h2>
+      <p>Esse tipo de instrução nos permite estabelecer um bloco alternativo de intruções caso a condição seja avaliada como <b>falsa</b>.</p>
+      <p>Em Português Estruturado:</p>
+      <pre>
+      <b>se</b> (<span class="hljs-tag">&lt;</span><span style="font-weight: normal !important;"><span class="hljs-tag"><span class="hljs-attribute">condição</span></span></span><span class="hljs-tag">&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição verdadeira</span>&gt;</span>
+      <b>senao</b>
+        <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição falsa</span>&gt;</span>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto</h2>
+      <p>A mesma instrução em diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-desvio-composto.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto: Exercício</h2>
+      <p>Desenvolva o algoritmo, o respectivo diagrama de blocos e sua codificação em Português Estruturado para resolver o problema de ler dois valores numéricos e efetuar a adição dos mesmos. Caso o valor somado seja maior ou igual a 10, este deve ser apresentado somando-se a ele mais 5. Caso o valor somado não seja maior ou igual a 10, este deve ser apresentado subtraindo-se 7.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto: Resposta</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Conhecer dois valores (variáveis A e B);</li>
+        <li>Efetuar a soma dos valores A e B e atribuir o valor da soma à X;</li>
+        <li>Verificar se X é maior ou igual a 10; caso sim, mostre X + 5, senão, mostre X – 7.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto: Resposta</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-desvio-composto-exemplo-1.jpg" alt="" width="25%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto: Resposta</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Soma_Numeros"
+var
+  X, A, B, R: <b>inteiro</b>
+  
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(A, B)
+  X <- A + B
+  <b>se</b> (X >= 10) <b>entao</b>
+    R <- X + 5
+  <b>senao</b>
+    R <- X - 7
+  <b>fimse</b>
+  <b>escreva</b>(R)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h2>Desvios condicionais encadeados</h2>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados</h2>
+      <p>Usamos esse tipo de instrução quando queremos estabelecer verificação de condições sucessivas.</p>
+      <p>Português Estruturado:</p>
+      <pre>
+      <b>se</b> (<span class="hljs-tag">&lt;</span><span style="font-weight: normal !important;"><span class="hljs-tag"><span class="hljs-attribute">condição1</span></span></span><span class="hljs-tag">&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição1 verdadeira</span>&gt;</span>
+      <b>senao</b>
+        <b>se</b> (<span class="hljs-tag">&lt;</span><span style="font-weight: normal !important;"><span class="hljs-tag"><span class="hljs-attribute">condição2</span></span></span><span class="hljs-tag">&gt;</span>) <b>entao</b>
+          <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição2 verdadeira, porém condição1 falsa</span>&gt;</span>
+        <b>senao</b>
+          <span class="hljs-tag">&lt;<span class="hljs-attribute">instruções para condição2 falsa</span>&gt;</span>
+        <b>fimse</b>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-desvios-encadeados.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados: Problema</h2>
+      <p>Elaborar um programa que efetue o cálculo do reajuste de salário de um funcionário e o apresente na tela. Considere que o funcionário deverá receber um reajuste de 15% caso seu salário seja menor que 500. Se o salário for maior ou igual a 500, mas menor ou igual a 1000, seu reajuste será de 10%; caso seja inda maior que 1000, o reajuste deverá ser de 5%.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados: Problema</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Definir uma variável para o salário reajustado: NOVO_SALARIO;</li>
+        <li>Ler um valor para a variável SALARIO;</li>
+        <li>Verificar se o valor do SALARIO &lt; 500, se sim reajustar em 15%;</li>
+        <li>Verificar se o valor do SALARIO &lt;= 1000, se sim reajustar em 10%</li>
+        <li>Verificar se o valor do SALARIO &gt; 1000, se sim reajustar em 5%;</li>
+        <li>Apresentar o valor reajustado, implicando em NOVO_SALARIO.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados: Problema</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-desvios-encadeados-exemplo-1.jpg" alt="" width="35%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvios condicionais encadeados: Problema</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Reajusta_Salario"
+var
+  novo_salario: <b>real</b>
+  salario: <b>real</b>
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(salario)
+  <b>se</b> (salario < 500) <b>entao</b>
+    novo_salario <- salario * 1.15
+  <b>senao</b>
+    <b>se</b> (salario <= 1000) <b>entao</b>
+      novo_salario <- salario * 1.10
+    <b>senao</b>
+      novo_salario <- salario * 1.05
+    <b>fimse</b>
+  <b>fimse</b>
+  <b>escreva</b>(novo_salario)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Operadores lógicos</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Operadores lógicos</h2>
+      <p>Há ocasiões em que é necessário trabalhar com o relacionamento de duas ou mais condições ao mesmo tempo na mesma instrução <b>se...entao</b>, e efetuar deste modo testes múltiplos.</p>
+      <p>Para estes casos é preciso empregar os operadores lógicos: <b>E, OU, e NÃO</b>.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico E</h2>
+      <p>Este operador é utilizado quando dois ou mais relacionamentos lógicos de uma determinada condição precisam ser verdadeiros.</p>
+      <p>Tabela-verdade:</p>
+      <p class="centre">
+        <img src="img/operador-logico-e.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico E</h2>
+      <p>Português Estruturado:</p>
+      <pre>
+      <b>se</b> (<span class="hljs-tag">&lt;condição1&gt;</span>) <b>e</b> (<span class="hljs-tag">&lt;condição2&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;instruções executadas se condição1 e condição2 são verdadeiras&gt;</span>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico E</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-operador-logico-e.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico E</h2>
+      <p>Exemplo:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "testa_logica_e"
+var
+  numero: <b>inteiro</b>
+  
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(numero)
+  <b>se</b> (numero >= 20) <b>e</b> (numero <=90) <b>entao</b>
+    <b>escreva</b>("O numero esta na faixa de 20 a 90")
+  <b>senao</b>
+    <b>escreva</b>("O numero esta FORA da faixa de 20 a 90")
+  <b>fimse</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico OU</h2>
+      <p>O operador do tipo <b>OU</b> é utilizado quando pelo menos um dos relacionamentos lógicos de uma condição necessita ser verdadeiro.</p>
+      <p>Tabela-verdade:</p>
+      <p class="centre">
+        <img src="img/operador-logico-ou.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico OU</h2>
+      <p>Português Estruturado:</p>
+      <pre>
+      <b>se</b> (<span class="hljs-tag">&lt;condição1&gt;</span>) <b>ou</b> (<span class="hljs-tag">&lt;condição2&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;instruções executadas se condição1 ou condição2 é verdadeira&gt;</span>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico OU</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-operador-logico-ou.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico OU</h2>
+      <p>Exemplo:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "testa_logica_ou"
+      
+var
+SEXO: <b>literal</b>
+
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(SEXO)
+  <b>se</b> (SEXO = "masculino") <b>ou</b> (SEXO = "feminino") <b>entao</b>
+    <b>escreva</b>("Seu sexo existe.")
+  <b>senao</b>
+    <b>escreva</b>("Desconheço seu sexo.")
+  <b>fimse</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico NAO</h2>
+      <p>O operador do tipo <b>NAO</b> é utilizado quando se necessita estabelecer que uma determinada condição deve não ser verdadeira ou deve não ser falsa.</p>
+      <p><b>NAO</b> se caracteriza por inverter o estado lógico de uma condição.</p>
+      <p>Tabela-verdade:</p>
+      <p class="centre">
+        <img src="img/operador-logico-nao.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico NAO</h2>
+      <p>Português Estruturado:</p>
+      <pre>
+      <b>se</b> <b>nao</b>(<span class="hljs-tag">&lt;condição1&gt;</span>) <b>entao</b>
+        <span class="hljs-tag">&lt;instruções executadas se condição1 não for verdadeira&gt;</span>
+      <b>fimse</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Operador lógico NAO</h2>
+      <p>Exemplo:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Testa_Logica_NAO"
+var
+A, B, C, X: <b>inteiro</b>
+
+<span class="hljs-keyword">inicio</span>
+  <b>leia</b>(A, B, X)
+  <b>se</b> <b>nao</b>(X>5) <b>entao</b>
+    C <- (A + B) * X
+  <b>senao</b>
+    C <- (A - B) * X
+  <b>fimse</b>
+  <b>escreva</b>(C)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js "></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js "></script>
+  <script>
+    $(function () {
+      var y = 1000;
+      $('.step.basic').each(function (i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js "></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src="../../common/js/custom.js "></script>
+
+</body>
+
+</html>

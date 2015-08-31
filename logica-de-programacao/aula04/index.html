@@ -1,0 +1,440 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Lógica de programação - Aula 04</title>
+  <!--  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">-->
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>Lógica de programação</h1>
+      <p>
+        Aula 04 - Estruturas de controle: repetição
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Motivação</h2>
+      <p>Imagine um programa que peça a leitura de um valor para a variável X, multiplique esse valor por 3, atribua-o à variável de resposta R, e apresente o valor obtido, repetindo esta sequência por cinco vezes.</p>
+      <p>Repetindo 10 vezes.</p>
+      <p>Repetindo 50 vezes.</p>
+      <p>Repetindo 500 vezes.</p>
+      <p>Repetindo diversas vezes até enquanto o usuário quiser.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Introdução</h2>
+      <p>Existem ocasiões em que é necessário efetuar a repetição de um trecho de programa um determinado número de vezes. Neste caso, poderá ser criado um looping que efetue o processamento de um determinado trecho, tantas vezes quantas forem nececessárias. Os loopings também são chamados de laços de repetição ou malhas de repetição.
+      </p>
+    </div>
+
+    <div class="step basic centre">
+      <h1> Repetição do Tipo: Teste Lógico no Início do Looping</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping</h2>
+      <p>Efetua um teste lógico no início de um looping verificando se é permitido executar o trecho de instruções subordinado a esse looping.</p>
+      <p>Em Português Estruturado nós temos:</p>
+      <pre>
+      <b>enquanto</b> (<span class="hljs-tag">&lt;condição&gt;</span>) <b>faca</b>
+        <span class="hljs-tag">&lt;instruções executadas enquanto condição for verdadeira&gt;</span>
+      <b>fimenquanto</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-teste-inicio.jpg" alt="">
+      </p>
+      <p class="note">*Diferente da estrutura de decisão, aqui existe um retorno à condição após a execução do bloco de operações.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo</h2>
+      <p>Imagine um programa que peça a leitura de um valor para a variável X, multiplique esse valor por 3, atribua-o à variável de resposta R, e apresente o valor obtido, repetindo esta sequência por cinco vezes.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Criar uma variável para servir como contador com valor inicial 1;</li>
+        <li>Enquanto o valor do contador for menor ou igual a 5, processar os passos 3, 4, 5, e 6;</li>
+        <li>Ler um valor para a variável X;</li>
+        <li>Efetuar a multiplicação do valor de X por 3, atribuindo o resultado à R;</li>
+        <li>Apresentar o valor calculado contido na variável R;</li>
+        <li>Acrescentar +1 a variável contador, definida no passo 1;</li>
+        <li>Quando o contador for maior que 5, encerrar o processamento do looping.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-teste-inicio-exemplo-1.jpg" alt="" width="24%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Looping_1A"
+var
+  X, R: <b>inteiro</b>
+  CONT: <b>inteiro</b>
+  
+<span class="hljs-keyword">inicio</span>
+  CONT <- 1
+  <b>enquanto</b> (CONT <= 5) <b>faca</b>
+    <b>leia</b>(X)
+    R <- X * 3
+    <b>escreva</b>(R)
+    CONT <- CONT + 1
+  <b>fimenquanto</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo 2</h2>
+      <p>E se tivéssemos que executar o problema anterior até enquanto o usuário quiser?</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo 2</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Criar uma variável para ser utilizada como resposta;</li>
+        <li>Enquanto a resposta for <b>"sim"</b>, executar os passos 3, 4 e 5;</li>
+        <li>Ler um valor para a variável X;</li>
+        <li>Efetuar a multiplicação do valor de X por 3, atribuindo o resultado à R;</li>
+        <li>Apresentar o valor calculado contido na variável R;</li>
+        <li>Quando a resposta for diferente de <b>"sim"</b>, encerrar o processamento.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo 2</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-teste-inicio-exemplo-2.jpg" alt="" width="20%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Início do Looping - Exemplo 2</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Looping_1B"
+var
+  X, R: <b>inteiro</b>
+  RESP: <b>literal</b>
+<span class="hljs-keyword">inicio</span>
+  RESP <- "sim"
+  <b>enquanto</b> (RESP = "sim") <b>faca</b>
+    <b>leia</b>(X)
+    R <- X * 3
+    <b>escreva</b>(R)
+    <b>escreva</b>("Deseja continuar? ")
+    <b>leia</b>(RESP)
+  <b>fimenquanto</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Repetição do Tipo: Teste Lógico no Fim do Looping</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping</h2>
+      <p>Nesse tipo de repetição o teste lógico é efetuado no fim do looping.</p>
+      <p>Nesse caso, o conjunto de instruções é executado <b>pelo menos uma vez</b> antes de verificar a validade da condição, diferente da estrutura <b>enquanto</b>.</p>
+      <p>Em Português Estruturado:</p>
+      <pre>
+      <b>repita</b>
+        <span class="hljs-tag">&lt;bloco de instruções&gt;</span>
+      <b>ate</b> (<span class="hljs-tag">&lt;condição&gt;</span>)
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo</h2>
+      <p>Pedir a leitura de um valor para a variável X, multiplique esse valor por 3, atribua-o à variável de resposta R, e apresente o valor obtido, repetindo esta sequência por cinco vezes.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Criar uma variável para servir como contador com valor inicial 1;</li>
+        <li>Ler um valor para a variável X;</li>
+        <li>Efetuar a multiplicação do valor de X por 3, atribuindo o resultado à R;</li>
+        <li>Apresentar o valor calculado contido na variável R;</li>
+        <li>Acrescentar +1 a variável contador, definida no passo 1;</li>
+        <li>Repetir os passos 2, 3, 4 e 5 até que o contador seja maior que 5.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-teste-fim-exemplo-1.jpg" alt="" width="18%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Looping_2A"
+var
+  X, R: <b>inteiro</b>
+  CONT: <b>inteiro</b>
+
+<span class="hljs-keyword">inicio</span>
+  CONT <- 1
+  <b>repita</b>
+    <b>leia</b> (X)
+    R <- X * 3
+    <b>escreva</b>(R)
+    CONT <- CONT + 1
+  <b>ate</b> (CONT > 5)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo 2</h2>
+      <p>Pedir a leitura de um valor para a variável X, multiplique esse valor por 3, atribua-o à variável de resposta R, e apresente o valor obtido, repetindo esta sequência até que o usuário encerre o processamento segundo a sua vontade.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo 2</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Iniciar o programa e o modo de laço repita;</li>
+        <li>Ler um valor para a variável X;</li>
+        <li>Efetuar a multiplicação do valor de X por 3, atribuindo o resultado à R;</li>
+        <li>Apresentar o valor calculado contido na variável R;</li>
+        <li>Solicitar do usuário se este deseja ou não continuar o programa;</li>
+        <li>Repetir os passos 2, 3, 4 e 5 até que a resposta do usuário seja diferente de <b><i>sim</i></b>.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo 2</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-teste-fim-exemplo-2.jpg" alt="" width="15%">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Teste Lógico no Fim do Looping - Exemplo 2</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Looping_2B"
+var
+  X, R: <b>inteiro</b>
+  RESP: <b>literal</b>
+
+<span class="hljs-keyword">inicio</span>
+  RESP <- "sim"
+  <b>repita</b>
+    <b>leia</b>(X)
+    R <- X * 3
+    <b>escreva</b>(R)
+    <b>escreva</b>("Deseja continuar? ")
+    <b>leia</b>(RESP)
+  <b>ate</b> (RESP <> "sim")
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Repetição do Tipo: Variável de Controle</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Repetição do Tipo: Variável de Controle</h2>
+      <p>Esse tipo de estrutura visa facilitar a construção de loopings que possuem um número <i>finito</i> de execuções.</p>
+      <p>Em Português Estruturado:</p>
+      <pre>
+      <b>para</b> <span class="hljs-tag">&lt;variável&gt;</span> <b>de</b> <span class="hljs-tag">&lt;início&gt;</span> <b>até</b> <span class="hljs-tag">&lt;fim&gt;</span> <b>passo</b> <span class="hljs-tag">&lt;incremento&gt;</span> <b>faca</b>
+        <span class="hljs-tag">&lt;instruções&gt;</span>
+      <b>fimpara</b>
+      </pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Repetição do Tipo: Variável de Controle - Exemplo</h2>
+      <p>Considere o mesmo problema anterior: "Pedir a leitura de um valor para a variável X, multiplicar esse valor por 3, atribuindo-o à variável de resposta R, e apresentar o valor obtido, repetindo esta sequência por cinco vezes".</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Repetição do Tipo: Variável de Controle - Exemplo</h2>
+      <p>Algoritmo:</p>
+      <ol>
+        <li>Definir um contador, variando de 1 a 5;</li>
+        <li>Ler um valor para a variável X;</li>
+        <li>Efetuar a multiplicação do valor de X por 3, atribuindo o resultado à R;</li>
+        <li>Apresentar o valor calculado, contido na variável R;</li>
+        <li>Repetir os passos 2, 3, 4 e 5 até que o contador seja encerrado.</li>
+      </ol>
+    </div>
+
+    <div class="step basic">
+      <h2>Repetição do Tipo: Variável de Controle - Exemplo</h2>
+      <p>Diagrama de blocos:</p>
+      <p class="centre">
+        <img src="img/diagrama-variavel-controle-exemplo-1.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Repetição do Tipo: Variável de Controle - Exemplo</h2>
+      <p>Português Estruturado:</p>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Looping_2A"
+var
+X, R: <b>inteiro</b>
+CONT: <b>inteiro</b>
+
+<span class="hljs-keyword">inicio</span>
+  <b>para</b> CONT <b>de</b> 1 <b>ate</b> 5 <b>passo</b> 1 <b>faca</b>
+    <b>leia</b>(X)
+    R <- X * 3
+    <b>escreva</b>(R)
+  <b>fimpara</b>
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+    </div>
+
+    <div class="step basic centre">
+      <h1>Considerações entre tipos de estruturas de repetição</h1>
+    </div>
+
+    <div class="step basic">
+      <h2>Considerações entre tipos de estruturas de repetição</h2>
+      <ul>
+        <li>No decorrer da aula nós vimos três estruturas de repetição: <b>enquanto</b>, <b>repita</b>, e <b>para</b>.</li>
+        <li><b>enquanto</b> e <b>repita</b> são as estruturas mais versáteis: podem ser substituídas uma pela outra, além de poder substituir a estrutura <b>para</b>.</li>
+        <li>Nem toda estrutura <b>enquanto</b> ou <b>repita</b> pode ser substituída por <b>para</b>.</li>
+        <li>Todas estas estruturas podem ser encadeadas a depender do problema.</li>
+      </ul>
+    </div>
+
+    <div id="exercicio" class="step centre" data-x="2000" data-y="0" data-rotate="90" data-scale="2">
+      <h1>Hora de exercitar!</h1>
+      <img src="img/baby-meme.jpg" alt="">
+    </div>
+
+    <div class="step" data-x="2000" data-y="4000" data-rotate="90" data-scale="2">
+      <h2>Exercício</h2>
+      <p>Elaborar o algoritmo, diagrama de blocos e codificação em português estruturado de um programa que efetue o cálculo do fatorial do número 5 (5!).</p>
+      <p class="note">Dica: !5 = 5 * 4 * 3 * 2 * 1, ou seja, !5 = 120.</p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="8000" data-rotate="90" data-scale="2">
+      <h2>Exercício</h2>
+      <h4>Algoritmo (fase 1)</h4>
+      <ol>
+        <li>Inicializar as variáveis FATORIAL e CONTADOR com 1;</li>
+        <li>Multiplicar sucessivamente a variável FATORIAL pela variável CONTADOR;</li>
+        <li>Incrementar 1 á variável CONTADOR, efetuando o controle até 5;</li>
+        <li>Apresentar ao final o valor obtido.</li>
+      </ol>
+      <p class="note">O que se quer dizer por "multiplicar sucessivamente"?</p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="12000" data-rotate="90" data-scale="2">
+      <h2>Exercício</h2>
+      <h4>Algoritmo (fase 2)</h4>
+      <ol>
+        <li>Inicializar as variáveis FATORIAL e CONTADOR com 1;</li>
+        <li>Repetir a execução dos passos 3 e 4 por cinco vezes;</li>
+        <li>FATORIAL &lt;- FATORIAL * CONTADOR;</li>
+        <li>Incrementar 1 á variável CONTADOR;</li>
+        <li>Apresentar ao final o valor obtido.</li>
+      </ol>
+    </div>
+
+    <div class="step" data-x="2000" data-y="16000" data-rotate="90" data-scale="2">
+      <h2>Exercício - Diagrama de blocos</h2>
+      <p class="centre">
+        <img src="img/exercicio-1.jpg" alt="" width="18%">
+      </p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="20000" data-rotate="90" data-scale="2">
+      <h2>Exercício - Teste de mesa</h2>
+      <p class="centre">
+        <img src="img/exercicio-1-teste-de-mesa.jpg" alt="">
+      </p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="24000" data-rotate="90" data-scale="2">
+      <h2>Exercício - Português Estruturado</h2>
+      <pre><code><span class="hljs-keyword">algoritmo</span> "Fatorial_A"
+<span class="hljs-keyword">var</span>
+  CONTADOR : <b>inteiro</b>
+  FATORIAL : <b>inteiro</b>
+
+<span class="hljs-keyword">inicio</span>
+  FATORIAL <- 1
+  CONTADOR <- 1
+  <b>enquanto</b> (CONTADOR <=5) <b>faca</b>
+    FATORIAL <- FATORIAL * CONTADOR
+    CONTADOR <- CONTADOR + 1
+  <b>fimenquanto</b>
+  <b>escreva</b>("Fatorial de 5 é = ", FATORIAL)
+<span class="hljs-keyword">fimalgoritmo</span>
+</code></pre>
+      <p class="note">Note que a instrução <b>escreva()</b> está exibindo duas informações na tela, uma mensagem e uma variável. Isso é feito utilizando uma vírgula para separá-las.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício</h2>
+      <p>Parte 2: Tente resolver o mesmo problema usando a instrução <b>repita</b>.</p>
+      <p>Parte 3: Tente resolver o mesmo problema usando a instrução <b>para</b>.</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js "></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js "></script>
+  <script>
+    $(function () {
+      var y = 1000;
+      $('.step.basic').each(function (i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <!--
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js "></script>
+<script>
+  hljs.initHighlightingOnLoad();
+</script>
+-->
+  <script src="../../common/js/custom.js "></script>
+
+</body>
+
+</html>

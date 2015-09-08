@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>Lógica de programação - Aula 04</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+  <style>
+    .arrayAndVar {
+      display: flex;
+    }
+    
+    .arrayAndVar > div {
+      flex: 1;
+    }
+  </style>
+</head>
+
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>Lógica de programação</h1>
+      <p>
+        Aula 05 - Estrutura de dados homogênea: vetores
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema motivacional</h2>
+      <p>Calcular e exibir a média geral de uma turma de 8 alunos. A média a ser obtida deve ser a média geral das médias de cada aluno obtida durante o ano letivo. Para representar a média do primeiro aluno será utilizada a variável MD1, para o segundo MD2 e assim por diante.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Motivação</h2>
+      <p>Até agora nós somos capazes de armazenar diferentes valores em diferentes variáveis. No exemplo anterior, por exemplo, tivemos que criar oito variáveis para armazenar as médias dos alunos.</p>
+      <p>Linguagens de programação nos oferecem uma estrutura de dados conhecida como <b>vetores</b> que nos permite utilizar apenas uma variável para armazenar diversos valores do mesmo tipo.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Vetores</h2>
+      <p>Vetor é uma técnica de programação que permite trabalhar com o agrupamento* de várias informações dentro de uma mesma variável.</p>
+      <p>Vetores também são comumente conhecidos como arranjos, matrizes, ou <i>arrays</i>.</p>
+      <p class="note">*Esse agrupamento deve ser realizado obedecendo o mesmo tipo de dado. Daí o nome <b>estrutura de dado homogênea.</b></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Atribuição de um vetor</h2>
+      <p>A criação de vetores em Português Estruturado tem a seguinte sintaxe:</p>
+      <pre class=" hljs xml">
+        VARIÁVEL: <b>VETOR[</b><span class="hljs-tag">&lt;dimensão&gt;</span><b>] de</b> <span class="hljs-tag">&lt;tipo de dado&gt;</span></pre>
+
+    </div>
+
+    <div class="step basic">
+      <h2>Atribuição de um vetor</h2>
+      <p>Um vetor para o exemplo anterior poderia ser criado da seguinte forma:</p>
+      <pre class=" hljs xml">
+        MD: <b>VETOR[</b><span class="hljs-tag">1..8</span><b>] de real</b></pre>
+      <p>Sendo seu nome <b>MD</b> e seu tamanho de 1 a 8.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Problema</h2>
+      <p>Calcular e exibir a média geral de uma turma de 8 alunos <u><b>usando vetor</b></u>. A média a ser obtida deve ser a média geral das médias de cada aluno obtida durante o ano letivo. Para representar a média dos alunos será utilizado o vetor <b>MD</b>.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Comparação entre uso de variáveis e vetor</h2>
+      <p>Armazenamento de médias utilizando vetores e variáveis simples:</p>
+      <div class="arrayAndVar">
+        <div>
+          <pre>
+            MD[1] = 4.5 
+            MD[2] = 6.5 
+            MD[3] = 8.0 
+            MD[4] = 3.5 
+            MD[5] = 6.0 
+            MD[6] = 7.0 
+            MD[7] = 6.5 
+            MD[8] = 6.0
+          </pre>
+        </div>
+        <div>
+          <pre>
+            MD1 = 4.5 
+            MD2 = 6.5 
+            MD3 = 8.0 
+            MD4 = 3.5 
+            MD5 = 6.0 
+            MD6 = 7.0 
+            MD7 = 6.5 
+            MD8 = 6.0
+          </pre>
+        </div>
+      </div>
+      <p class="note">Os números entre colchetes são chamados <i>índices</i>.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Comparação entre uso de variáveis e vetor</h2>
+      <p>Usando vetores nós temos:</p>
+      <ul>
+        <li>Código mais legível;</li>
+        <li>Maior escalabilidade.</li>
+      </ul>
+    </div>
+
+    <div id="exercicio" class="step centre" data-x="2000" data-y="0" data-rotate="90" data-scale="2">
+      <h1>Hora de exercitar!</h1>
+      <img src="img/baby-meme.jpg" alt="">
+    </div>
+
+    <div class="step" data-x="2000" data-y="4000" data-rotate="90" data-scale="2">
+      <h2>Exercício 1</h2>
+      <p>Desenvolver um programa que efetue a leitura de dez elementos de um vetor A. Construir uma matriz B de mesmo tipo, observando a seguinte lei de formação: se o valor do índice for par, o valor deverá ser multiplicado por 5, sendo ímpar, deverá ser somado com 5. Ao final mostrar o conteúdo da matriz B.</p>
+      <p class="note">Lembre que um número será par se quando dividido por 2 obtiver resto igual a 0.</p>
+    </div>
+
+    <div class="step" data-x="2000" data-y="8000" data-rotate="90" data-scale="2">
+      <h2>Exercício 2</h2>
+      <p>Desenvolver um programa que efetue a leitura de cinco elementos de um vetor A. No final, apresente o total da soma de todos os elementos que sejam ímpares.
+      </p>
+      <p class="note">Lembre que um número será ímpar se quando dividido por 2 obtiver resto igual a 1.</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js "></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js "></script>
+  <script>
+    $(function () {
+      var y = 1000;
+      $('.step.basic').each(function (i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js ">
+  </script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  <script src="../../common/js/custom.js "></script>
+
+</body>
+
+</html>

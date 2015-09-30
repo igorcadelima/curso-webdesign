@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JavaScript - Aula 01</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>JavaScript</h1>
+        <p>
+          Aula 01 - Introdução à JavaScript
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2>O que vocês verão nesse módulo de JavaScript?</h2>
+        <ul>
+          <li>Características básicas do JavaScript</li>
+          <li>Variáveis, strings e matrizes</li>
+          <li>Estruturas de decisão e repetição</li>
+          <li>Funções e eventos</li>
+          <li>Objetos</li>
+          <li>Validação de formulários</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>O que é JavaScript?</h2>
+        <ul>
+          <li>É linguagem de programação mais utilizada na Web do lado cliente.</li>
+          <li>Foi criada para trabalhar em conjunto com HTML e CSS a fim de produzir conteúdo web dinâmico.</li>
+          <li>Com ela é possível criar websites dinâmicos, jogos, aplicações para desktop e smartphone, e muito mais. Exemplos: <a href="http://www.spotify.com">Spotify</a>, <a href="http://hexgl.bkcore.com/">HexGL</a>, <a href="http://brackets.io/">Brackets</a>, etc.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>História do JavaScript</h2>
+        <ul>
+          <li>Criada em 10 dias em Maio de 1995 por Brendan Eich da Netscape sob o nome de Mocha</li>
+          <li>Em Setembro de 1995, quando lançada a versão beta, teve seu nome mudado para LiveScript</li>
+          <li>Por último, em Dezembro do mesmo ano recebeu o nome de JavaScript</li>
+        </ul>
+      </div>
+
+      <div class="step basic centre">
+        <h1>Atenção: JavaScript não é Java</h1>
+        <h3><cite>"Java está para o Javascript assim como Bola está para Bolacha."</cite></h3>
+      </div>
+
+      <div class="step basic">
+        <h2>Onde o JavaScript é executado?</h2>
+        <p>Inicialmente, JavaScript era utilizado somente nos navegadores (lado cliente).</p>
+        <p>Hoje, com a evolução das engines de JavaScript (ex. SpiderMonkey e V8), podemos rodar JS no lado servidor (ver <a href="nodejs.org">Node.js</a>) e até mesmo gerenciar bancos de dados (ver <a href="http://couchdb.apache.org/">CouchDB</a> e <a href="https://www.mongodb.org/">MongoDB</a>).</p>
+        <p class="centre"><img src="img/cliente-servidor.png" alt="Arquitetura cliente-servidor."></p>
+      </div>
+
+      <div class="step basic">
+        <h2>Mãos à obra! - alert()</h2>
+        <p>Abram o <i>console</i> do seu navegador e digitem o seguinte comando:</p>
+        <pre><code>alert("Olá, Microcamp!");</code></pre>
+        <p>E executem apertando <i>ENTER</i>.</p>
+        <p>Esse comando deve abrir uma caixinha de alerta na tela com a mensagem "Olá, Microcamp!"</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Mãos à obra! - prompt()</h2>
+        <p><i>alert</i> é um comando interessante, porém só nos permite emitir um alerta na tela. Vamos tentar criar uma caixa de diálogo para que o usuário possa entrar com um valor.</p>
+        <p>Executem:</p>
+        <pre><code>prompt("Qual é sua idade?");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Mãos à obra! - prompt()</h2>
+        <p class="centre"><img class="halfWidth" src="img/prompt.jpg" alt=""></p>
+        <p class="centre"><cite>"Tá. Mas para onde vai esse valor da idade?"</cite></p>
+        <p></p>
+      </div>
+
+      <div class="step basic">
+        <h2>Mãos à obra! - prompt()</h2>
+        <p>O valor não vai à lugar algum. Para corrigir isso nós teremos que criar uma variável para armazenar o valor.</p>
+        <p>Executem o seguinte código:</p>
+        <pre><code>var idade = prompt("Qual é sua idade?");
+alert("Minha idade é " + idade + " anos.");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Exercício</h2>
+        <p>Escreva um código em que você receba seu nome e depois mostre-o na tela.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Como usar JS dentro de um documento HTML?</h2>
+        <p>Existem três maneiras diferentes para inserir JS em um documento HTML:</p>
+        <ul>
+          <li>Inline</li>
+          <li>Encorporado</li>
+          <li>Externo</li>
+        </ul>
+        <p class="note">Para exemplificar, baixem <a href="exemplo.html" download>aqui</a> um arquivo de exemplo com a estrutura básica do HTML.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Declaração Inline</h2>
+        <p>O script é inserido diretamente nos elementos HTML dentro do corpo do documento (<code>&lt;body&gt;</code>).</p>
+        <p>Exemplo:</p>
+        <pre><code class="html">&lt;body onload="alert('Bem-vindo ao nosso website de exemplo.');"&gt;</code></pre>
+        <p>Essa prática não é recomendada pois dificulta a manutenção do código.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Declaração Incorporada</h2>
+        <p>O script é inserido na seção <code>&lt;head&gt;</code> do documento.</p>
+        <p>Exemplo:</p>
+        <pre><code class="html">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Exemplo&lt;/title&gt;
+  &lt;script&gt;
+    alert("Olá, mundo!");
+  &lt;/script&gt;
+&lt;/head&gt;</code></pre>
+        <p>Essa prática é bem utilizada, porém deve ser evitada se o código for muito extenso.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Declaração Externa</h2>
+        <p>Escrever o script em um arquivo externo e inserir com um link na seção <code>&lt;head&gt;</code> documento.</p>
+        <p>Exemplo:</p>
+        <pre><code class="html">...
+&lt;head&gt;
+  &lt;script src="arquivo_externo.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+...</code></pre>
+        <p>Essa prática é a mais recomendada por facilitar manutenção e reúso de código.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>O método write()</h2>
+        <p>O método write pertence ao objeto <i>document</i>.</p>
+        <p>O objeto <i>document</i> representa um documento HTML ou uma página web propriamente dita.</p>
+        <p>Execute o seguinte código JS:</p>
+        <pre><code>document.write("teste")</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Variáveis</h2>
+        <p><i>"Variáveis são caixas para se guardar informações."</i></p>
+        <ul>
+          <li>Em JS as variáveis são criadas com ajuda da instrução <code>var</code>.</li>
+          <li>As mesmas regras de criação de variáveis que vimos com Portugol se aplicam aqui.</li>
+          <li>Por JS ser uma linguagem de tipagem dinâmica, embora cada variável seja criada com um tipo específico, não precisamos indicar qual tipo de variável estamos criando.</li>
+        </ul>
+        <p class="note">Atenção: JS é <i>case sensitive</i>, o que significa dizer que faz distinção entre letras maiúsculas e minúsculas.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Tipos de dados de variáveis</h2>
+        <ul>
+          <li>Númerico (<i>number</i>): números inteiros e reais</li>
+          <li>Lógico (<i>boolean</i>): valores verdadeiro ou falso (true/false)</li>
+          <li>Literal (<i>string</i>): sequências de caracteres como "nome"</li>
+          <li>Nulo (<i>null</i>): variável com valor nulo, sem significado</li>
+          <li>Indefinido (<i>undefined</i>): variável com valor indefinido.</li>
+        </ul>
+
+
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

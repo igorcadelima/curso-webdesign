@@ -1,0 +1,402 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JavaScript - Aula 02</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>JavaScript</h1>
+        <p>
+          Aula 02 - Constantes, variáveis, matrizes e operadores
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2>Contantes e variáveis</h2>
+        <p>De maneira simples, pode-se dizer que <b>constantes</b> e <b>variáveis</b> são como caixas para se guardar dados ou informações.</i></p>
+        <p><b>Constantes</b> são caixas para armazenar valores imutáveis (ex. &Pi;).</p>
+        <p><b>Variáveis</b> são caixas para armazenar valores que podem ser mutável (ex. endereço.).</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Nomeação de constantes e variáveis (revisão)</h2>
+        <ul>
+          <li>Nomes poderão ser atribuídos com um ou mais caracteres;
+          </li>
+          <li>O primeiro caractere do nome sempre deverá ser uma letra;
+          </li>
+          <li>Não poderá existir espaços em branco no nome;
+          </li>
+          <li>O nome da constante ou variável não poderá ser uma palavra reservada da linguagem;
+          </li>
+          <li>Não poderão ser utilizados outros caracteres a não ser letras não-especiais, números e <i>underline</i>.
+          </li>
+        </ul>
+        <p class="note">Palavras reservadas em JavaScript: <a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords">https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Lexical_grammar#Keywords</a></p>
+      </div>
+
+      <div class="step basic">
+        <h2>Constantes e variáveis em JavaScript</h2>
+        <p>Constantes são criadas com ajuda da instrução <code>const</code>. Exemplo:</p>
+        <pre><code class="javascript">const pi = 3.14;</code></pre>
+        <p>Variáveis são criadas com ajuda da instrução <code>var</code>. Exemplo:</p>
+        <pre><code class="javascript">var endereco = "R. São Francisco, 625";</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Constantes e variáveis em JavaScript</h2>
+        <ul>
+          <li>Por ser uma linguagem de tipagem dinâmica, embora cada variável seja criada com um tipo específico, não é necessário declarar explicitamente seu tipo.</li>
+          <li>JS é <i>case sensitive</i>, ou seja, faz distinção entre letras maiúsculas e minúsculas. Por exemplo: NOME != nome.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Tipos de dados</h2>
+        <ul>
+          <li>Literal (<i>string</i>): sequências de caracteres como "nome"</li>
+          <li>Númerico (<i>number</i>): números inteiros e reais</li>
+          <li>Lógico (<i>boolean</i>): valores verdadeiro ou falso (true/false)</li>
+          <li>Nulo (<i>null</i>): variável com valor nulo, sem significado</li>
+          <li>Indefinido (<i>undefined</i>): variável com valor indefinido.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Tipos de dados</h2>
+        <p>A função <i>typeof(&lt;variável&gt;)</i> pode ser usada para verificar o tipo de uma variável ou constante em qualquer ponto de execução do programa.</p>
+        <p>Por exemplo:</p>
+        <pre><code class="javascript">var nome = "Mario Bros";
+var idade = 32;
+var empregado = true;
+var profissao;
+document.write("&lt;p&gt;Tipo de nome: ", typeof(nome), "&lt;/p&gt;");
+document.write("&lt;p&gt;Tipo de idade: ", typeof(idade), "&lt;/p&gt;");
+document.write("&lt;p&gt;Tipo de empregado: ", typeof(empregado), "&lt;/p&gt;");
+document.write("&lt;p&gt;Tipo de profissao: ", typeof(profissao), "&lt;/p&gt;");
+document.write("&lt;p&gt;Tipo de teste: ", typeof(teste), "&lt;/p&gt;");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes (Arrays)</h2>
+        <p>Matrizes podem ser consideradas como super-variáveis por poder guardar vários valores por vez ao invés de apenas um.</p>
+        <p>Matrizes podem ser unidimensionais (vetor) ou bidimensionais.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes unidimensionais (vetores)</h2>
+        <p>Vetores possuem a capacidade de armazenar diversos valores em uma única direção: horizontal (vetor linha), e vertical (vetor coluna).</p>
+        <p>Exemplo de como um vetor é representado na memória:</p>
+        <p class="centre">
+          <img  class="halfWidth" src="img/memoria.gif" alt="Vetor na memória de um computador.">
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes unidimensionais (vetores) - exemplo</h2>
+        <pre><code class="javascript">var nomes = ["Huguinho", "Zezinho", "Luisinho"];
+document.write("O nome referenciado pelo índice 0 é: ", nomes[0]);
+document.write("&lt;br/&gt;O nome referenciado pelo índice 1 é: ", nomes[1]);
+document.write("&lt;br/&gt;O nome referenciado pelo índice 2 é: ", nomes[2]);</code></pre>
+        <p>O mesmo código poderia ser escrito como:</p>
+        <pre><code class="javascript">var nomes = new Array(3);
+nomes[0] = "Huguinho";
+nomes[1] = "Zezinho";
+nomes[2] = "Luisinho";
+document.write("O nome referenciado pelo índice 0 é: ", nomes[0]);
+document.write("&lt;br/&gt;O nome referenciado pelo índice 1 é: ", nomes[1]);
+document.write("&lt;br/&gt;O nome referenciado pelo índice 2 é: ", nomes[2]);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes unidimensionais (vetores) - exercício</h2>
+        <p>Crie um vetor com uma lista de frutas que você deve comprar em ordem na feira. Por fim, escreva na página os nomes de todas as frutas na ordem em que você deve comprá-las.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes bidimensionais</h2>
+        <p>Matrizes bidimensionais são basicamente vetor dentro de outro vetor.</p>
+        <p>Matrizes bidimensionais permite trabalhar com o conceito de tabela, ou seja, linhas e colunas.</p>
+        <p class="centre">
+          <img class="halfWidth" src="img/matriz_bidimensional.png" alt="">
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes bidimensionais - exemplo</h2>
+        <pre><code class="javascript">var agenda = [
+  ["Segunda", "01", "Almoço com a família"],
+  ["Quarta", "10", "Ligar para marcar o exame médico"],
+  ["Sexta", "20", "Visitar a tia Ana"]
+];
+document.write("&lt;h3&gt;Dia da semana: ", agenda[0][0]);
+document.write("&lt;br /&gt;Dia do mês: ", agenda[0][1]);
+document.write("&lt;br /&gt;Compromisso: ", agenda[0][2], "&lt;/h3&gt;");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Matrizes bidimensionais - exercício</h2>
+        <p>Crie uma matriz para armazenar os dados da tabela abaixo e exiba na tela a região, código,e nome do vendedor em destaque.</p>
+        <table border="1" style="margin: auto;">
+          <thead>
+            <tr>
+              <th>Região</th>
+              <th>Código</th>
+              <th>Nome</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Sul</td>
+              <td>210</td>
+              <td>Marcos Alexandre</td>
+            </tr>
+            <tr>
+              <td class="hljs-tag">Norte</td>
+              <td>101</td>
+              <td>Ricardo Oliveira</td>
+            </tr>
+            <tr>
+              <td>Leste</td>
+              <td>155</td>
+              <td>Maurício Mattar</td>
+            </tr>
+            <tr>
+              <td>Oeste</td>
+              <td class="hljs-tag">15</td>
+              <td class="hljs-tag">Márcio Pereira</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores</h2>
+        <p>JavaScript possui basicamente os mesmos operadores das linguagens mais conhecidas. Nesse módulo vamos estudar os seguintes:</p>
+        <ul>
+          <li>aritméticos;</li>
+          <li>de string;</li>
+          <li>de atribuição;</li>
+          <li>lógicos;</li>
+          <li>e de comparação.</li>
+        </ul>
+        <p class="note"><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators#Operadores">Veja aqui a lista completa.</a></p>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores aritméticos</h2>
+        <p>Devem ser usados para realizar operações de:</p>
+        <ul>
+          <li>Adição (+);</li>
+          <li>Subtração (-);</li>
+          <li>Multiplicação (*);</li>
+          <li>Divisão (/);</li>
+          <li>Módulo (%) - retorna o resto inteiro da divisão entre dois valores;</li>
+          <li>Incremento (++) - adiciona um para seu operando;</li>
+          <li>Decremento (--) - subtrai um de seu operando.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores aritméticos - exemplo</h2>
+        <pre><code class="javascript">var idade_pai = 48;
+var idade_mae = 40;
+var idade_filho = 15;
+var total = idade_pai + idade_mae + idade_filho;
+var media = total / 3;
+var diferenca_idade_pais = idade_pai - idade_mae;
+var dobro_idade_filho = idade_filho * 2;
+var resto = total % 3;
+document.write("O total de idade é: ", total);
+document.write("&lt;br /&gt;A média de idade do grupo é: ", media);
+document.write("&lt;br /&gt;A diferença de idade do pai para a mãe é: ", diferenca_idade_pais);
+document.write("&lt;br /&gt;O dobro da idade do filho é: ", dobro_idade_filho);
+document.write("&lt;br /&gt;O resto da divisão do total por 3 é: ", resto);
+document.write("&lt;br /&gt;A idade do pai incrementado com ++ é: ", ++idade_pai);
+document.write("&lt;br /&gt;A idade da mãe decrementando com -- é: ", --idade_mae);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Operador de string</h2>
+        <p>O operador concatenação (+) é utilizado quando queremos juntar uma cadeia de caracteres (string) com outra.</p>
+        <p>O resultado da concatenação é uma outra string.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var nome = prompt("Digite seu nome:");
+var saudacao = "Olá! Seja bem-vindo, ";
+document.write(saudacao + nome + '.');</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores de atribuição</h2>
+        <p>Um operador de atribuição atribui um valor ao operando à sua esquerda baseado no valor do operando à direita.</p>
+        <table border="1" style="margin: auto;">
+          <thead>
+            <tr>
+              <th>Símbolo</th>
+              <th>Exemplo</th>
+              <th>Equivalente a</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>=</td>
+              <td>
+                <code>x = 3;</code> <br>
+                <code>a = b + c;</code>
+              </td>
+              <td>---</td>
+            </tr>
+            <tr>
+              <td>+=</td>
+              <td>
+                <code>x += 3;</code> <br>
+                Se x era 1, passa para 4.
+              </td>
+              <td><code>x = x + 3;</code></td>
+            </tr>
+            <tr>
+              <td>+=</td>
+              <td>
+                <code>x -= 3;</code> <br>
+                Se x era 1, passa para -2.
+              </td>
+              <td><code>x = x - 3;</code></td>
+            </tr>
+            <tr>
+              <td>*=</td>
+              <td>
+                <code>x *= 2;</code> <br>
+                Se x era 4, passa para 8.
+              </td>
+              <td><code>x = x * 2;</code></td>
+            </tr>
+            <tr>
+              <td>+=</td>
+              <td>
+                <code>x /= 2;</code> <br>
+                Se x era 4, passa para 2.
+              </td>
+              <td><code>x = x / 2;</code></td>
+            </tr>
+            <tr>
+              <td>%=</td>
+              <td>
+                <code>x %= 2;</code> <br>
+                Se x era 3, passa para 1.
+              </td>
+              <td><code>x = x % 2;</code></td>
+            </tr>
+          </tbody>
+        </table>
+
+        <small>
+          <p class="note"><a href="https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators#Operadores_de_atribui.C3.A7.C3.A3o">Veja aqui a lista completa.</a></p>
+        </small>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores de atribuição - exemplo</h2>
+        <pre><code class="javascript">var nota1 = 8.5;
+var nota2 = 7.5;
+var nota_final = (nota1 + nota2) / 2;
+document.write("A nota final é: ", nota_final);
+
+nota_final += 2;  //Acrescenta 2 pontos à variável nota_final
+document.write("&lt;br /&gt;A nota final é: ", nota_final);
+</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores de comparação</h2>
+        <p>São usados para comparar os valores de seus operandos e retornar um valor lógico (true/false).</p>
+        <table border="1" style="margin: auto;">
+          <thead>
+            <tr>
+              <th>Símbolo</th>
+              <th>Descrição</th>
+              <th>Exemplo</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>==</td>
+              <td>valor igual a</td>
+              <td><code class="javascript">2 == "2"; //true</code></td>
+            </tr>
+            <tr>
+              <td>!=</td>
+              <td>diferente de</td>
+              <td><code class="javascript">2 != 2; //false</code></td>
+            </tr>
+            <tr>
+              <td>===</td>
+              <td>valor e tipo igual a</td>
+              <td><code class="javascript">2 === "2"; //false</code></td>
+            </tr>
+            <tr>
+              <td>&gt;</td>
+              <td>maior que</td>
+              <td><code class="javascript">5 &gt; 2; //true</code></td>
+            </tr>
+            <tr>
+              <td>&lt;</td>
+              <td>menor que</td>
+              <td><code class="javascript">5 &lt; 10; //true</code></td>
+            </tr>
+            <tr>
+              <td>&gt;=</td>
+              <td>maior ou igual a</td>
+              <td><code class="javascript">5 &gt;= 5; //true</code></td>
+            </tr>
+            <tr>
+              <td>&lt;=</td>
+              <td>menor ou igual a</td>
+              <td><code class="javascript">5 &lt; 5; //true</code></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="step basic">
+        <h2>Operadores de comparação - exemplo</h2>
+        <pre><code class="javascript">var idade = prompt("Qual sua idade?");
+var maior_de_idade = idade &gt;= 18;
+document.write("Maior de idade? ", maior_de_idade);
+
+var media = prompt("Qual foi sua média?");
+var reprovado = media &lt; 7;
+document.write("&lt;br /&gt;Reprovado? ", reprovado);</code></pre>
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

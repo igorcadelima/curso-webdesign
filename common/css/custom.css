@@ -115,3 +115,11 @@ pre code {
 .halfHeight {
   height: 50%;
 }
+
+th {
+  padding: 0 .5rem;
+}
+
+td {
+  padding: .2rem 0.5rem;
+}

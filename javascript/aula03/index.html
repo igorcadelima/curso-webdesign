@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JavaScript - Aula 02</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>JavaScript</h1>
+        <p>
+          Aula 03 - Estruturas de decisão e repetição
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2>Estruturas de decisão</h2>
+        <p>Utilizam-se estruturas de decisão quando desejamos executar determinado conjunto de instruções para uma dada condição.</p>
+        <p>Em JS temos as seguintes declarações condicionais:</p>
+        <ul>
+          <li>if</li>
+          <li>else if</li>
+          <li>else</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Estruturas de decisão: if</h2>
+        <p>O comando condicional <code>if</code> simples serve para executar todo o código que esteja entre chaves após a condição do comando, caso o resultado lógico da condição seja <code>true</code>.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var idade = prompt("Qual sua idade?");
+if (idade >= 18) {
+  document.write("Você é maior de idade.");
+}
+document.write("&lt;br/&gt;Fim de página.");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estruturas de decisão: if ... else</h2>
+        <p>O comando <code>else</code> permite adicionar um bloco de instruções alternativo a ser executado caso a o resultado lógico da condição do <code>if</code> resulte em <code>false</code>.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var idade = prompt("Qual sua idade?");
+if (idade >= 18) {
+  document.write("Você é maior de idade.");
+} else {
+  document.write("Você é menor de idade.");
+}
+document.write("&lt;br/&gt;Fim de página.");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estruturas de decisão: if ... else if ... else</h2>
+        <p>Com <code>else if</code> pode-se adicionar outras condições à estrutura.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var valor = prompt("Digite um valor: ");
+if (valor &gt; 10) {
+  document.write("O valor digitado é maior que 10.");
+} else if (valor &lt; 10) {
+  document.write("O valor digitado é menor que 10.");
+} else {
+  document.write("O valor digitado é igual a 10.");
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estruturas de decisão - exercício</h2>
+        <p>Efetuar a leitura de três valores (variáveis A, B e C) e apresentá-los dispostos em ordem crescente.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: for</h2>
+        <p>A estrutura <code>for</code> é a mesma coisa que a instrução <code>para</code> vista nas aulas de lógica de programação.</p>
+        <p>Esse tipo de estrutura deve ser utilizada quando já se conhece a quantidade de vezes que um determinado bloco de instruções deve ser repetido.</p>
+        <p>Sintaxe:</p>
+        <pre>for (&lt;expressão inicial&gt;; &lt;condição&gt;; &lt;atualização&gt;) {
+  &lt;instruções&gt;;
+}</pre>
+
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: for - exemplo</h2>
+        <p>Para entender melhor a estrutura <code>for</code>, execute o seguinte código: </p>
+        <pre><code class="javascript">for (var i = 0; i &lt;= 5; i++) {
+  document.write("O valor de i = ", i);
+  document.write("&lt;hr&gt;");
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: while</h2>
+        <p>A estrutura <code>while</code> é a mesma coisa que a instrução <code>enquanto ... faca</code> vista nas aulas de lógica de programação.</p>
+        <p><code>while</code> executa as instruções especificas em seu bloco de código enquanto a condição for verdadeira.</p>
+        <p>Sintaxe:</p>
+        <pre>
+<b>while</b> (<span class="hljs-tag">&lt;condição&gt;</span>) {
+  <span class="hljs-tag">&lt;instruções executadas enquanto condição for verdadeira&gt;</span>
+}
+        </pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: while - exemplo</h2>
+        <p>A seguir está o código para o mesmo exemplo anterior reescrito utilizando <code>while</code>:</p>
+        <pre><code class="javascript">var i = 0;
+while (i &lt;= 5) {
+  document.write("Valor de i = ", i);
+  document.write("&lt;hr&gt;");
+  i++; //i = i + 1;
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: do while</h2>
+        <p>A estrutura <code>do ... while</code> é a mesma coisa que a instrução <code>repita ... ate</code> vista nas aulas de lógica de programação.</p>
+        <p>Diferente da estrutura <code>while</code>, um loop <code>do ... while</code> uma vez antes que a condição seja avaliada.</p>
+        <p>Sinstaxe:</p>
+        <pre>
+<b>do</b> {
+  <span class="hljs-tag">&lt;bloco de instruções&gt;</span>
+} <b>while</b> (<span class="hljs-tag">&lt;condição&gt;</span>);
+        </pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição: do ... while</h2>
+        <p>O exemplo a seguir demonstra que, mesmo quando a primeira verificação da condição é falsa, as instruções dentro do loop são executadas pelo menos uma vez.</p>
+        <pre><code class="javascript">var i = 6;
+do {
+  document.write("Valor de i = ", i);
+  document.write("&lt;hr&gt;");
+  i++; //i = i + 1;
+} while (i &lt;= 5)</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Estrutura de repetição - exercício</h2>
+        <p>Faça um programa que leia um número inteiro e imprima a tabuada de multiplicação deste número.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>A instrução break</h2>
+        <p>A instrução <code>break</code> encerra a execução do loop delimitador mais próximo (<code>do</code>, <code>for</code> ou <code>while</code>) na qual ele aparece.</p>
+        <p>Tem por objetivo o cancelamento da execução do loop sem que haja verificação na condição de saída do loop.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var i = 0;
+while (i &lt;= 5) {
+  i++; //i = i + 1;
+  document.write("Valor de i = ", i);
+  document.write("&lt;hr&gt;");
+  break;
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>A instrução break</h2>
+        <p>Uma vantagem do uso do <code>break</code> é que ele pode parar o loop dentro de uma condição criada por um <code>if</code>.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var i = 0;
+while (i &lt;= 5) {
+  i++; //i = i + 1;
+  if (i == 3) {
+    break;
+  }
+  document.write("Valor de i = ", i);
+  document.write("&lt;hr&gt;");
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>A instrução continue</h2>
+        <p>A instrução <code>continue</code> transmite o controle para a próxima iteração da instrução <code>do</code>, <code>for</code> ou <code>while</code> delimitadora mais próxima em que aparece.</p>
+        <p>Exemplo:</p>
+        <pre><code class="javascript">var lista = [1, 33, 5, 2, 5, 93];
+for (var i = 0; i &lt;=5; i++) {
+  if (lista[i] == 5) {
+    continue;
+  }
+  document.write("O valor de lista[", i,"] é: ", lista[i]);
+  document.write("&lt;hr&gt;");
+}</code></pre>
+      </div>
+
+      <div class="basic step">
+        <h2>Trabalho 1</h2>
+        <p>Acessem o seguinte link para responder o trabalho: <a target="_blank" href="https://microcampcom-my.sharepoint.com/personal/prof_igor_microcamp_com_br/_layouts/15/guestaccess.aspx?guestaccesstoken=%2bTBFrcVXqU0%2ffiyoU%2b04ceHJCwa5cykWMx%2bNvnXJ9fw%3d&docid=1_178bc0ac1634744b1bcda089eda821ce6&wdFormId=%7BD7F4158F%2DEC60%2D487B%2D8709%2DDC2D10E557E1%7D">link</a>.</p>
+        <p>Prazos de entrega: </p>
+        <ul>
+          <li>Até <b>23:59</b> do dia <b>14/10/2015 (quarta-feira)</b>;</li>
+          <li>Até <b>23:59</b> do dia <b>15/10/2015 (quinta-feira)</b> com 10% de penalidade;</li>
+          <li>Até <b>23:59</b> do dia <b>16/10/2015 (sexta-feira)</b> com 20% de penalidade.</li>
+          <li>Até <b>23:59</b> do dia <b>17/10/2015 (sábado)</b> com 30% de penalidade.</li>
+        </ul>
+        <p>A nota 0 (zero) será atribuída a quem exceder os prazos acima sem devida justificativa.</p>
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

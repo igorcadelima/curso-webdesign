@@ -1,0 +1,426 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JavaScript - Aula 04</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>JavaScript</h1>
+        <p>
+          Aula 04 - Funções e eventos
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>Funções</h2>
+        <ul>
+          <li>Uma função é um bloco de código designado para realizar uma tarefa em particular.</li>
+          <li>Além de evitar repetição desnecessária de código, funções facilitam manutenção e leitura de código.</li>
+          <li><code>alert</code>, <code>prompt</code>, e <code>typeof</code> são exemplos de funções que usamos até agora.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Criando funcões</h2>
+        <p>As duas maneiras mais comuns de criar funções em JS são as seguintes: declaração de função e expressão de função.</p>
+        <p>Declaração de função:</p>
+        <pre><code class="javascript">function nome(parametro1, parametro2, ..., parametroN){
+  // Código a ser executado
+}</code></pre>
+        <p>Expressão de função:</p>
+        <pre><code class="javascript">var nome = function(parametro1, parametro2, ..., parametroN) {
+  // Código a ser executado
+}</code></pre>
+        <p class="note">Parâmetros são opcionais.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Funções</h2>
+        <p>Podemos classificar funções como:</p>
+        <ul>
+          <li>Funções sem retorno (procedimento);</li>
+          <li>Funções com retorno;</li>
+          <li>Funções com parâmetros;</li>
+          <li>Funções com parâmetros e retorno.</li>
+        </ul>
+      </div>
+      
+      <div class="step basic">
+        <h2>Funções sem retorno - exemplo</h2>
+        <p>No arquivo de script JS adicione:</p>
+        <pre><code class="javascript">function saudacao() {
+  alert("Olá, visitante!");
+}</code></pre>
+        <p>No corpo do arquivo HTML adicione:</p>
+        <pre><code class="html">&lt;a href="#" onClick="saudacao()"&gt; Abrir alerta &lt;/a&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Funções com retorno - exemplo</h2>
+        <p>Funções com retorno usam a instrução <code>return</code> para retornar algo da função.</p>
+        <pre><code class="javascript">function calculaIMC() {
+  var altura = 1.80;  // Altura em metros
+  var peso = 80;      // Peso em quilogramas
+  var imc = peso / (altura * altura);
+  return imc;
+}
+
+document.write("O índice de massa corporal (IMC) é: ", calculaIMC());</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Funções com parâmetros - exemplo</h2>
+        <p>Esse tipo de função nos permite passar valores/argumentos para a função para que se possa utilizá-los dentro da função.</p>
+        <p>Um função pode receber vários argumento desde que sejam separados por vírgulas.</p>
+        <pre><code class="javascript">function saudacao (nome) {
+  alert("Olá, " + nome + "!");
+}
+
+var nomeUsuario = prompt("Qual o seu nome?");
+saudacao(nomeUsuario);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Funções com parâmetros e retorno - exemplo</h2>
+        <p>Como um nome sugere, esse tipo de função permite que valores sejam passados como argumentos e que valores possam ser retornados.</p>
+        <pre><code class="javascript">function calcArea (base, altura) {
+  var area = base * altura;
+  return area;
+}
+
+var areaRetangulo = calcArea(2, 4);
+document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Eventos</h2>
+        <p>Pode-se dizer que evento é tudo que um usuário realiza quando está visitando uma página web. Ex.: mover ou clicar com o mouse sobre um objeto de texto, de imagem, ou de formulário.</p>
+        <p>Outros exemplos:</p>
+        <ul>
+          <li>Carregamento de uma página;</li>
+          <li>Passagem do mouse sobre algum elemento HTML;</li>
+          <li>Seleção de um campo de entrada em um formulário HTML;</li>
+          <li>Submissão de um formulário HTML;</li>
+          <li>Pressionamento de tecla;</li>
+          <li>e muitos outros.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Captura de eventos</h2>
+        <p>Baseado no que foi visto até agora, serão usadas declarações inline e incorporadas de código JS para capturar eventos.</p>
+        <p>Por exemplo:</p>
+        <pre><code class="html">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Exemplo&lt;/title&gt;
+  &lt;script&gt;
+    function acao() {
+      alert("Opa! Você acabou de clicar no campo de email.");
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Email: &lt;input name="email" type="text" onClick="acao();"&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Tipos de eventos</h2>
+        <p>Esses serão os eventos vistos nessa aula:</p>
+        <table border="1" style="margin: auto;">
+          <thead>
+            <tr>
+              <th>Evento</th>
+              <th>Descrição</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>onClick</td>
+              <td>Acontece quando um objeto é clicado.</td>
+            </tr>
+            <tr>
+              <td>onMouseOver</td>
+              <td>Acontece quando o cursor é colocado sobre um objeto.</td>
+            </tr>
+            <tr>
+              <td>onMouseOut</td>
+              <td>Acontece quando o curso deixade estar sobre um objeto.</td>
+            </tr>
+            <tr>
+              <td>onLoad</td>
+              <td>Acontece quando um objeto é carregado.</td>
+            </tr>
+            <tr>
+              <td>onSelect</td>
+              <td>Acontece quando um campo de formulário é selecionado.</td>
+            </tr>
+            <tr>
+              <td>onSubmit</td>
+              <td>Acontece quando a ação de submissão de um formulário é iniciada.</td>
+            </tr>
+            <tr>
+              <td>onFocus</td>
+              <td>Acontece quando um elemento de formulário recebe foco.</td>
+            </tr>
+            <tr>
+              <td>onBlur</td>
+              <td>Acontece quando um elemento de formulário perde foco.</td>
+            </tr>
+            <tr>
+              <td>onChange</td>
+              <td>Acontece quando um objeto é modificado.</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <p class="note">Lista mais extensa de eventos <a href="http://www.w3schools.com/jsref/dom_obj_event.asp">aqui</a>.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>onClick</h2>
+        <p>onClick é um dos eventos mais utilizados em JS pois é acionado sempre que acontece um clique do mouse sobre um elemento HTML como botão, campo de texto, etc.</p>
+        <p>Exemplo:</p>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Exemplo onClick&lt;/title&gt;
+  &lt;script&gt;
+    function acao() {
+      alert("A forma padrão para email é nome@servidor.com.");
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Email: &lt;input name="email" type="text" onClick="acao();"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onClick - exemplo</h2>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Exemplo onClick&lt;/title&gt;
+  &lt;script&gt;
+    function mudaBackground(cor) {
+      document.bgColor = cor;
+    }
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h3&gt;Mude a cor de fundo da página:&lt;/h3&gt;
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href="#" onclick="mudaBackground('red')"&gt;Vermelho&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" onclick="mudaBackground('green')"&gt;Verde&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" onclick="mudaBackground('blue')"&gt;Azul&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href="#" onclick="mudaBackground('white')"&gt;Padrão&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onMouseOver - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function mudaBackground(cor) {
+      document.bgColor = cor;
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;h3&gt;Mude a cor de fundo da página:&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('red');"&gt;Vermelho&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('green';)"&gt;Verde&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('blue');"&gt;Azul&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('white');"&gt;Padrão&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+  </code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onMouseOut - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function mudaBackground(cor) {
+      document.bgColor = cor;
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;h3&gt;Mude a cor de fundo da página:&lt;/h3&gt;
+    &lt;ul&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('red');" onMouseOut="mudaBackground('white');"&gt;Vermelho&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('green');" onMouseOut="mudaBackground('white');"&gt;Verde&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('blue');" onMouseOut="mudaBackground('white');"&gt;Azul&lt;/a&gt;&lt;/li&gt;
+      &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('white');"&gt;Padrão&lt;/a&gt;&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/body&gt;
+  </code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onLoad - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function perguntaNome() {
+      var nome = prompt("Qual seu nome?");
+      return nome;
+    }
+
+    function escreveNome() {
+      var nome = perguntaNome();
+      document.write("Bom dia, ", nome, ".");
+    }
+  &lt;/script&gt;
+...
+  &lt;body onLoad="escreveNome();"&gt;&lt;/body&gt;
+  </code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onSelect - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function selecao(id) {
+      console.log("O campo " + id + " foi selecionado.");
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;form&gt;
+      Login: &lt;input id="login" type="text" onSelect="selecao('login');"&gt; &lt;br /&gt;
+      Senha: &lt;input id="senha" type="password" onSelect="selecao('senha');"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onFocus - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function foco(id) {
+      console.log("O campo " + id + " recebeu foco.");
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;form&gt;
+      Login: &lt;input id="login" type="text" onFocus="foco('login');"&gt; &lt;br /&gt;
+      Senha: &lt;input id="senha" type="password" onFocus="foco('senha');"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onBlur - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function perdeFoco(id) {
+      console.log("O campo " + id + " perdeu foco.");
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;form&gt;
+      Login: &lt;input id="login" type="text" onBlur="perdeFoco('login');"&gt; &lt;br /&gt;
+      Senha: &lt;input id="senha" type="password" onBlur="perdeFoco('senha');"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onChange - exemplo</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function alteracao(id) {
+      var alterado = document.getElementById(id).value;
+      console.log("O campo " + id + " foi alterado.");
+      console.log("Alteração: " + alterado);
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;form&gt;
+      Login: &lt;input id="login" type="text" onChange="alteracao('login');"&gt; &lt;br /&gt;
+      Senha: &lt;input id="senha" type="password" onChange="alteracao('senha');"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onSubmit</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function submissao() {
+      var login = document.getElementById('login').value;
+      var senha = document.getElementById('senha').value;
+      if (login == "") {
+        alert("Digite seu login.");
+      }
+      if (senha == "") {
+        alert("Digite sua senha.");
+      }
+    }
+  &lt;/script&gt;
+...
+  &lt;body&gt;
+    &lt;form onSubmit="submissao();"&gt;
+      Login: &lt;input id="login" type="text"&gt; &lt;br /&gt;
+      Senha: &lt;input id="senha" type="password"&gt; &lt;br /&gt;
+      &lt;input type="submit" value="Enviar"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="basic step">
+        <h2>Trabalho 2</h2>
+        <p>Acessem o seguinte link para responder o trabalho: <a target="_blank" href="http://goo.gl/forms/wRGcYXP6IW">link</a>.</p>
+        <p>Prazos de entrega: </p>
+        <ul>
+          <li>Até <b>23:59</b> do dia <b>23/10/2015 (sexta-feira)</b>;</li>
+          <li>Até <b>23:59</b> do dia <b>24/10/2015 (sábado)</b> com 10% de penalidade;</li>
+          <li>Até <b>23:59</b> do dia <b>25/10/2015 (domingo)</b> com 20% de penalidade.</li>
+          <li>Até <b>23:59</b> do dia <b>26/10/2015 (segunda)</b> com 30% de penalidade.</li>
+        </ul>
+        <p>A nota 0 (zero) será atribuída a quem exceder os prazos acima sem devida justificativa.</p>
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

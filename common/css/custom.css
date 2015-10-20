@@ -2,7 +2,7 @@
 html {
   overflow: hidden;
   font-family: sans-serif;
-  font-size: 20px;
+  font-size: 1.5em;
   line-height: 1.5;
 }
 
@@ -30,7 +30,7 @@ ol li {
 }
 
 .note {
-  font-size: ms(7);
+  font-size: 0.9rem;
   color: #aaa;
 }
 
@@ -42,7 +42,6 @@ code {
   background: #444;
   border-color: #888;
   padding: 5px 10px;
-  font-size: ms(7);
   color: #57c6ff;
 }
 
@@ -51,7 +50,7 @@ pre code {
   border: 0;
   padding: 20px 25px;
   display: block;
-  font-size: ms(6);
+  font-size: 0.8125rem;
   line-height: ms(9);
 }
 

@@ -283,8 +283,7 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
 
       <div class="step basic">
         <h2>Captura de eventos</h2>
-        <p>Baseado no que foi visto até agora, serão usadas declarações inline e incorporadas de código JS para capturar eventos.</p>
-        <p>Por exemplo:</p>
+        <p>Usando declaração inline e incorporada de código JS para capturar eventos:</p>
         <pre><code class="html">&lt;head&gt;
   &lt;meta charset="UTF-8"&gt;
   &lt;title&gt;Exemplo&lt;/title&gt;
@@ -295,7 +294,25 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
   &lt;/script&gt;
 &lt;/head&gt;
 &lt;body&gt;
-  Email: &lt;input name="email" type="text" onClick="acao();"&gt;
+  Email: &lt;input id="email" name="email" type="email" onClick="acao();"&gt;
+&lt;/body&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Captura de eventos</h2>
+        <p>Usando declaração externa de código JS para capturar eventos:</p>
+        <pre><code class="html">&lt;head&gt;
+  &lt;meta charset="UTF-8"&gt;
+  &lt;title&gt;Exemplo&lt;/title&gt;
+  &lt;script&gt;
+    function acao() {
+      alert("Opa! Você acabou de clicar no campo de email.");
+    }
+    document.getElementById("email").onclick = acao;
+  &lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  Email: &lt;input id="email" name="email" type="email"&gt;
 &lt;/body&gt;</code></pre>
       </div>
 
@@ -311,6 +328,10 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
           </thead>
           <tbody>
             <tr>
+              <td>onLoad</td>
+              <td>Acontece quando um objeto é carregado.</td>
+            </tr>
+            <tr>
               <td>onClick</td>
               <td>Acontece quando um objeto é clicado.</td>
             </tr>
@@ -323,16 +344,8 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
               <td>Acontece quando o curso deixade estar sobre um objeto.</td>
             </tr>
             <tr>
-              <td>onLoad</td>
-              <td>Acontece quando um objeto é carregado.</td>
-            </tr>
-            <tr>
               <td>onSelect</td>
               <td>Acontece quando um campo de formulário é selecionado.</td>
-            </tr>
-            <tr>
-              <td>onSubmit</td>
-              <td>Acontece quando a ação de submissão de um formulário é iniciada.</td>
             </tr>
             <tr>
               <td>onFocus</td>
@@ -346,6 +359,10 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
               <td>onChange</td>
               <td>Acontece quando um objeto é modificado.</td>
             </tr>
+            <tr>
+              <td>onSubmit</td>
+              <td>Acontece quando a ação de submissão de um formulário é iniciada.</td>
+            </tr>
           </tbody>
         </table>
 
@@ -353,9 +370,90 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
       </div>
 
       <div class="step basic">
-        <h2>onClick</h2>
-        <p>onClick é um dos eventos mais utilizados em JS pois é acionado sempre que acontece um clique do mouse sobre um elemento HTML como botão, campo de texto, etc.</p>
-        <p>Exemplo:</p>
+        <h2>Carregamento de uma página HTML</h2>
+        <p>O que você acha que é carregado primeiro? O conteúdo da tag <b>body</b> ou <b>script</b>?</p>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemplo - Carregamento&lt;/title&gt;
+    &lt;script&gt;
+      function main() {
+        alert("Seja bem-vindo!");
+      }
+      main();
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Página carregada.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onLoad - exemplo 1</h2>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemplo - onLoad&lt;/title&gt;
+    &lt;script&gt;
+      function main() {
+        alert("Seja bem-vindo!");
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body onLoad="main();"&gt;
+    &lt;p&gt;Página carregada.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onLoad - exemplo 2</h2>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemplo - onLoad&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;Página carregada.&lt;/p&gt;
+    &lt;script&gt;
+      function main() {
+        alert("Seja bem-vindo!");
+      }
+      document.body.onload = main;
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onLoad - exemplo 3</h2>
+        <pre><code class="html">...
+  &lt;script&gt;
+    function perguntaNome() {
+      var nome = prompt("Qual seu nome?");
+      return nome;
+    }
+
+    function cumprimento(nome) {
+      document.write("Bom dia, ", nome, ".");
+    }
+
+    function main() {
+      var nome = perguntaNome();
+      cumprimento(nome);
+    }
+  &lt;/script&gt;
+...
+  &lt;body onLoad="main();"&gt;&lt;/body&gt;
+  </code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>onClick - exemplo 1</h2>
         <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pt-br"&gt;
 &lt;head&gt;
@@ -374,7 +472,7 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
       </div>
 
       <div class="step basic">
-        <h2>onClick - exemplo</h2>
+        <h2>onClick - exemplo 2</h2>
         <pre><code class="html">&lt;!DOCTYPE html&gt;
 &lt;html lang="pt-br"&gt;
 &lt;head&gt;
@@ -437,25 +535,6 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
       &lt;li&gt;&lt;a href="#" onMouseOver="mudaBackground('white');"&gt;Padrão&lt;/a&gt;&lt;/li&gt;
     &lt;/ul&gt;
   &lt;/body&gt;
-  </code></pre>
-      </div>
-
-      <div class="step basic">
-        <h2>onLoad - exemplo</h2>
-        <pre><code class="html">...
-  &lt;script&gt;
-    function perguntaNome() {
-      var nome = prompt("Qual seu nome?");
-      return nome;
-    }
-
-    function escreveNome() {
-      var nome = perguntaNome();
-      document.write("Bom dia, ", nome, ".");
-    }
-  &lt;/script&gt;
-...
-  &lt;body onLoad="escreveNome();"&gt;&lt;/body&gt;
   </code></pre>
       </div>
 

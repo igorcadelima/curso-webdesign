@@ -82,6 +82,130 @@ exibirAlerta();</code></pre>
       </div>
 
       <div class="step basic">
+        <h2>Criando e chamando funções - exemplo 2</h2>
+        <pre><code class="javascript">function escreverNomes() {
+  var nomes = ["Guinho", "Zezinho", "Luisinho"];
+  for (var i = 0; i &lt; 3; i++) {
+    document.write(nomes[i] + "&lt;/br&gt;");
+  }
+  return;
+}
+
+escreverNomes();</code></pre>
+      </div>
+
+      <!-- Poderíamos usar uma outra função, por exemplo, pra remover itens duplicados duma lista e daí passar essa lista pra uma função que possa exibí-la como quisermos. -->
+
+      <div class="step basic">
+        <h2>Dinamicidade nas funções</h2>
+        <p>Em nossos exemplos as funções faziam apenas uma coisa &#8212; algumas vezes exatamente o que queríamos.</p>
+        <p>No entanto, algumas vezes precisamos de um pouco de flexibilidade</p>
+        <ul>
+          <li>Criar messagens personalizadas para serem exibidas</li>
+          <li>Prover dois números para fazer um cálculo</li>
+          <li>Validar campos de formulários, e opcionalmente exibir mensagens de aviso na tela</li>
+        </ul>
+      </div>
+
+
+      <div class="step basic">
+        <h2>Parâmetros</h2>
+        <p>Para <u>criar</u> funções que aceitam dados você pode usar parâmetros:</p>
+        <ul>
+          <li>Um <b>parâmetro é a definição</b> de um dado que uma função pode receber;</li>
+          <li>Dentro de funções, parâmetros são como variáveis.</li>
+        </ul>
+        <pre><code class="javascript">function exibirAlerta(mensagem) { // Mensagem é um parâmetro
+  alert(mensagem);
+  return;
+}
+
+exibirAlerta("Olá, mundo!");</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Argumentos</h2>
+        <p>Para <u>chamar</u> funções que aceitam dados e passar dados você pode usar argumentos:</p>
+        <ul>
+          <li>Um argumento é um valor real passado para uma função em tempo de execução do programa.</li>
+          <li>Vocês já usaram argumentos antes: <code class="javascript">alert("Olá, mundo!");</code></li>
+        </ul>
+        <pre><code class="javascript">function exibirAlerta(mensagem) { // Mensagem é um parâmetro
+  alert(mensagem);
+  return;
+}
+
+exibirAlerta("Olá, mundo!"); // "Olá, mundo!" é um argumento</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Parâmetros vs Argumentos</h2>
+        <p>Não confundam parâmetros com argumentos:</p>
+        <ul>
+          <li><u>Parâmetro é apenas a definição</u> do dado usada para construir a função;</li>
+          <li><u>Argumento é o valor</u> que será, de fato, passado para a função.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Múltiplos parâmetros</h2>
+        <p>Como podemos criar uma função que pode receber vários argumentos?</p>
+        <ul><li>Simplesmente adicione os parâmetros separando-os com vírgula.</li></ul>
+        <pre><code class="javascript">function exibirMensagem(cumprimento, nome) {  // Parâmetros
+  var mensagem = cumprimento + ", " + nome;
+  alert("mensagem");
+  return;
+}
+
+exibirMensagem("Oi", "Igor"); // Argumentos</code></pre>
+      </div>
+
+      <div class="step basic">
+        <!-- Mudar identificador do vetor para 'nomes'  -->
+        <h2>Passando valores para funções - exemplo 1</h2>
+        <pre><code class="javascript">function exibirNomes(nomes) {
+  for (var i = 0; i &lt; nomes.length; i++) {
+    document.write(nomes[i] + "&lt;/br&gt;");
+  }
+  return;
+}
+
+var lista = ["Guinho", "Zezinho", "Luisinho"];
+var novoNome = prompt("Nome do próximo convidado:");
+lista.push(novoNome);
+exibirNomes(lista);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Escopo de variável</h2>
+        <h3>Variáveis locais:</h3>
+        <ul>
+          <li>São variáveis criadas dentro do contexto de uma função e só funciona dentro da mesma.</li>
+        </ul>
+        <h3>Variáveis globais:</h3>
+        <ul>
+          <li>Devem ser declarada no contexto principal do programa para que possa ser acessada por todas as funções.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Retorno de dados</h2>
+        <p>Especifique o valor ou dado que deseja retornar após a palavra-chave <code>return</code>.</p>
+        <p>Você pode reusar nomes em funções diferentes:</p>
+        <pre><code class="javascript">function getMensagem(nome) {
+  var mensagem = "Olá, " + nome;
+  return mensagem;
+}
+function exibirAlerta(mensagem) {
+  alert(mensagem);
+  return;
+}
+var saida = getMensagem("Igor");
+exibirAlerta(saida);
+</code></pre>
+      </div>
+
+      <!-- <div class="step basic">
         <h2>Funções</h2>
         <p>Podemos classificar funções como:</p>
         <ul>
@@ -91,7 +215,7 @@ exibirAlerta();</code></pre>
           <li>Funções com parâmetros e retorno.</li>
         </ul>
       </div>
-      
+
       <div class="step basic">
         <h2>Funções sem retorno - exemplo</h2>
         <p>No arquivo de script JS adicione:</p>
@@ -137,6 +261,10 @@ saudacao(nomeUsuario);</code></pre>
 
 var areaRetangulo = calcArea(2, 4);
 document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
+      </div> -->
+      
+      <div class="step basic">
+        <h1 class="centre">Eventos</h1>
       </div>
 
       <div class="step basic">

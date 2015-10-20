@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>JavaScript - Aula 05</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>JavaScript</h1>
+        <p>
+          Aula 05 - Objetos e validação de formulários
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>O que é um objeto em JS?</h2>
+        <ul>
+          <li>Tudo em JS é um objeto (Object()).</li>
+          <li>Um objeto é uma coleção não-ordenada de dados que são armazenados como pares de chave-valor.</li>
+          <li>Todo item dentro de um objeto é chamado propriedade.</li>
+          <li>Dentro de objetos, funções são propriedades chamadas de métodos.</li>
+        </ul>
+        <pre><code class="javascript">var Pessoa = {
+  nome        : "Mario Bros",
+  idade       : 32,
+  cumprimetar : function () {
+    document.write("Olá! Meu nome é Mario.");
+  }
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Criando objetos personalizados</h2>
+        <p>Usando notação literal (ou inicializadores de objeto { }):</p> 
+        <!-- Identificadores podem ser nomes, números, ou strings -->
+        <pre><code class="javascript">var mario = {
+  nome        : "Mario Bros",
+  idade       : 32,
+  cumprimetar : function () {
+    document.write("Olá! Meu nome é " + nome + ".");
+  }
+}</code></pre>
+      <p>Usando função construtora (new Object()):</p>
+      <pre><code class="javascript">function Pessoa(nome, idade) {
+  this.nome         = nome;
+  this.idade        = idade;
+  this.cumprimentar = function () {
+    document.write("Olá! Meu nome é " + this.nome + ".");
+  }
+}
+var mario = new Pessoa("Mario Bros", 32);</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Objetos com notação literal</h2>
+        <p>Para se criar objetos usando notação literal devemos usar os inicializadores de objeto <b>{ }</b>.</p>
+        <p>Inicializadores de objeto são expressões que criam novos objetos a cada vez que são executados.</p>
+        <p>Inicializadores idênticos criam objetos diferentes:</p>
+        <pre><code class="javascript">var obj1 = {};
+var obj2 = {};
+obj1 == obj2; // false</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Objetos com função construtora</h2>
+        <h3>Como criar?</h3>
+        <ol>
+          <li>Defina o tipo de objeto definindo uma função construtora;</li>
+          <li>Crie uma instância do objeto com a palavra-chave <code>new</code>.</li>
+        </ol>
+      </div>
+
+      <div class="step basic">
+        <h2>Alterando uma propriedade</h2>
+        <p>Para alterar os valores de uma propriedade basta referenciá-la utilizando o nome do objeto e a propriedade precedida por um ponto (.). </p>
+        <pre><code class="javascript">mario.profissao = "Salvador de princesa";</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Excluindo propriedade</h2>
+        <p>Para deletar dados contidos em uma propriedade de um objeto utilizamos o operador <code>delete</code> seguido pelo nome da propriedade.</p>
+        <pre><code class="javascript">delete mario.profissao;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação de formulários</h2>
+        <p>Certamente todos nós já nos deparamos com formulários que não aceitavam dados incorretos ou fora dos padrões.</p>
+        <p>No nosso dia-a-dia de desenvolvedores teremos que construir diversos sites com formulários que deverão ser validados, seja por questão de segurança ou integridade de dados.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação do campo nome</h2>
+        <p>Suponha que temos os seguintes requisitos para o campo nome do nosso formulário:</p>
+        <ul>
+          <li>Conteúdo não pode ter menos que dois caracteres;</li>
+          <li>Não deve ser um número.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação do campo nome</h2>
+        <p>HTML:</p>
+        <pre><code class="html">&lt;form action="" name="cadastro" id="cadastro" onSubmit="validaNome();"&gt;
+  Nome: &lt;input type="text" name="nome" id="nome"&gt; &lt;br/&gt;
+  &lt;input type="submit" name="enviar" id="enviar" value="Enviar"&gt;
+&lt;/form&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação do campo nome</h2>
+        <p>JavaScript:</p>
+        <pre><code class="javascript">function validaNome() {
+  var campoNome = document.getElementById("nome");  // Pega o campo nome através do id
+  var nome = campoNome.value;                       // Pega o valor digitado no campo nome
+  if ((nome.length >= 2) &amp;&amp; (isNaN(nome))) {
+    alert("Preenchimento correto!");
+    document.cadastro.submit(); // Dá prosseguimento à submissão do formulário
+    return true;                  // Campo validado com sucesso
+  } else {
+    alert("Preencha o campo com um nome válido. Ex.: José.");
+    campoNome.focus();    // Retorna foco ao campo nome
+    campoNome.value = ""; // Limpa o conteúdo do campo nome
+    return false;         // Não envia valor algum
+  }
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação do campo email</h2>
+        <p>Poderíamos fazer quase a mesma ideia do exemplo anterior para validar um campo de email. No entanto, para o nosso caso, HTML5 nos provê uma maneira bem mais fácil de lidar com esse tipo de validação.</p>
+        <p>HTML:</p>
+        <pre><code class="html">&lt;form action="" name="cadastro" id="cadastro" onSubmit="validaEmail();"&gt;
+  Email: &lt;input type="email" name="email" id="email"&gt; &lt;br/&gt;
+  &lt;input type="submit" name="enviar" id="enviar" value="Enviar"&gt;
+&lt;/form&gt;</code></pre>
+        <p>JavaScript</p>
+        <pre><code class="javascript">function validaEmail() {
+  return document.getElementById("email").checkValidity();
+}</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Validação do campo CEP - Exercício</h2>
+        <p>Acrescente o campo CEP ao nosso formulário de cadastro e tente validá-lo. Lembre-se que o campo CEP não poderá ser vazio e terá que conter 8 dígitos numéricos.</p>
+      </div>
+
+      <div class="basic step">
+        <h2>Lembrete: Trabalho 2</h2>
+        <p>Acessem o seguinte link para responder o trabalho: <a target="_blank" href="http://goo.gl/forms/wRGcYXP6IW">link</a>.</p>
+        <p>Prazos de entrega: </p>
+        <ul>
+          <li>Até <b>23:59</b> do dia <b>28/10/2015 (quarta-feira)</b>;</li>
+          <li>Até <b>23:59</b> do dia <b>29/10/2015 (quinta-feira)</b> com 10% de penalidade;</li>
+          <li>Até <b>23:59</b> do dia <b>30/10/2015 (sexta-feira)</b> com 20% de penalidade.</li>
+          <li>Até <b>23:59</b> do dia <b>31/10/2015 (sábado)</b> com 30% de penalidade.</li>
+        </ul>
+        <p>A nota 0 (zero) será atribuída a quem exceder os prazos acima sem devida justificativa.</p>
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

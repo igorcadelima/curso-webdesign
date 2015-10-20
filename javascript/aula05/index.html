@@ -111,9 +111,9 @@ obj1 == obj2; // false</code></pre>
       <div class="step basic">
         <h2>Validação do campo nome</h2>
         <p>HTML:</p>
-        <pre><code class="html">&lt;form action="" name="cadastro" id="cadastro" onSubmit="validaNome();"&gt;
-  Nome: &lt;input type="text" name="nome" id="nome"&gt; &lt;br/&gt;
-  &lt;input type="submit" name="enviar" id="enviar" value="Enviar"&gt;
+        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="validaNome();"&gt;
+  Nome: &lt;input type="text" id="nome"&gt; &lt;br/&gt;
+  &lt;input type="submit" id="enviar" value="Enviar"&gt;
 &lt;/form&gt;</code></pre>
       </div>
 
@@ -125,8 +125,8 @@ obj1 == obj2; // false</code></pre>
   var nome = campoNome.value;                       // Pega o valor digitado no campo nome
   if ((nome.length >= 2) &amp;&amp; (isNaN(nome))) {
     alert("Preenchimento correto!");
-    document.cadastro.submit(); // Dá prosseguimento à submissão do formulário
-    return true;                  // Campo validado com sucesso
+    document.getElementyById("cadastro").submit();  // Dá prosseguimento à submissão do formulário
+    return true;                                    // Campo validado com sucesso
   } else {
     alert("Preencha o campo com um nome válido. Ex.: José.");
     campoNome.focus();    // Retorna foco ao campo nome
@@ -140,9 +140,9 @@ obj1 == obj2; // false</code></pre>
         <h2>Validação do campo email</h2>
         <p>Poderíamos fazer quase a mesma ideia do exemplo anterior para validar um campo de email. No entanto, para o nosso caso, HTML5 nos provê uma maneira bem mais fácil de lidar com esse tipo de validação.</p>
         <p>HTML:</p>
-        <pre><code class="html">&lt;form action="" name="cadastro" id="cadastro" onSubmit="validaEmail();"&gt;
-  Email: &lt;input type="email" name="email" id="email"&gt; &lt;br/&gt;
-  &lt;input type="submit" name="enviar" id="enviar" value="Enviar"&gt;
+        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="validaEmail();"&gt;
+  Email: &lt;input type="email" id="email"&gt; &lt;br/&gt;
+  &lt;input type="submit" id="enviar" value="Enviar"&gt;
 &lt;/form&gt;</code></pre>
         <p>JavaScript</p>
         <pre><code class="javascript">function validaEmail() {

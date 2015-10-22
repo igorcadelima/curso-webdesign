@@ -1,0 +1,192 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>PHP e MySQL - Aula 01</title>
+    <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+    <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+    <link href="../../common/css/custom.css" rel="stylesheet">
+  </head>
+  <body class="impress-not-supported">
+
+    <div id="impress">
+
+      <div class="step basic">
+        <h1>PHP e MySQL</h1>
+        <p>
+          Aula 01 - Introdução à PHP
+        </p>
+        <p>
+          Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+        </p>
+      </div>
+      
+      <div class="step basic">
+        <h2>O que é PHP?</h2>
+        <ul>
+          <li>PHP é um acrônimo recursivo para "<b>P</b>HP: <b>H</b>ypertext <b>P</b>reprocessor", originalmente <b>P</b>ersonal <b>H</b>ome <b>P</b>age.</li>
+          <li>Linguagem de programação usada para criar conteúdo dinâmico para a web.</li>
+          <li>PHP é executada no servidor e devolve para o lado cliente somente o código HTML.</li>
+        </ul>
+        <p class="centre">
+          <!-- O código é interpretado no lado do servidor pelo módulo PHP, que também gera a página web a ser visualizada no lado do cliente -->
+          <img src="img/cliente-servidor.png" alt="Arquitetura cliente-servidor">
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>Quem usa PHP?</h2>
+        <ul>
+          <li><a href="http://google.com">Google</a></li>
+          <li><a href="http://ebay.com">eBay</a></li>
+          <li><a href="http://facebook.com">Facebook</a></li>
+          <li><a href="http://wikimedia.com">Wikimedia</a></li>
+          <li><a href="http://oracle.com">Oracle</a></li>
+          <li><a href="http://yahoo.com">Yahoo</a></li>
+          <li><a href="http://digg.com">Digg</a></li>
+          <li><a href="http://flickr.com">Flickr</a></li>
+          <li><a href="http://fotolog.com">fotolog.com</a></li>
+          <li><a href="http://intel.com">Intel</a></li>
+          <li><a href="http://wwwnokia.com">Nokia</a></li>
+          <li>e muitos outros.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>Site de referência sobre PHP</h2>
+        <p>O site <a target="_blank" href="http://php.net/manual/pt_BR/">php.net</a> é o site oficial da PHP e nele é possível obter ótimo suporte sobe a linguagem. Neles vocês poderão encontrar exemplos sobre cada comando da linguagem e tutoriais bem didáticos.</p>
+        <p class="centre">
+          <img src="img/php-logo.png" alt="Logo PHP.">
+        </p>
+      </div>
+
+      <div class="step basic">
+        <h2>Ferramentas utilizadas - Editor de código</h2>
+        <p>Para criar páginas dinâmicas em PHP, precisamos apenas de um editor de texto simples. No entanto, existem algumas ferramentas que foram criadas especialmente para criação de código:</p>
+        <ul>
+          <li>
+            <a href="http://www.sublimetext.com/3">Sublime Text 3</a>
+          </li>
+          <li>
+            <a href="https://notepad-plus-plus.org/">Notepad++</a>
+          </li>
+          <li>
+            <a href="https://notepad-plus-plus.org/">Adobe Dreamweaver</a>
+          </li>
+          <li>
+            <a href="http://www.eclipse.org/pdt/">Eclipse</a>
+          </li>
+        </ul>
+        <p>Pesquise sobre eles e use o que você achar melhor.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Ferramentas utilizadas - Preparando o servidor</h2>
+        <p>Para preprar o nosso servidor e começar a programar em PHP utilizando banco de dados MySQL nós precisaremos do seguinte:</p>
+        <ul>
+          <li>Interpretador PHP;</li>
+          <li>Um servidor web (<a target="_blank" href="https://httpd.apache.org/">Apache</a>);</li>
+          <li>Servidor de banco de dados (<a target="_blank" href="http://www.mysql.com/">MySQL</a>).</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>O que é o XAMPP?</h2>
+        <ul>
+          <li>Um pacote de distribuição de programas de desenvolvimento web.</li>
+          <li>Ao baixar e instalar o XAMPP, o mesmo instala e configura automaticamente o Apache e o MySQL.</li>
+          <li>Acessando esse <a target="_blank" href="https://www.apachefriends.org/pt_br/index.html">link do site</a> é possível baixar o pacote para nossa máquina.</li>
+          <li>Ao executar o instalador, a instalação deve ser feita automaticamente e sem complicações.</li>
+        </ul>
+        <p>[Demonstração]</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Executando o XAMPP Control Panel</h2>
+        <ol>
+          <li>Ao instalar o XAMPP, o mesmo pode ser ativado pelo ícone "XAMPP Control Panel".</li>
+          <li>Clique o botão direito sobre o ícone XAMPP Control Panel e então <b>Executar como administrador</b>.</li>
+          <li>Inicialize os servidores Apache e MySQL clicando em <b>Start</b>.</li>
+          <li>Verifique a instalação do Apache acessando o endereço <a target="_blank" href="http://localhost">http://localhost</a>.</li>
+        </ol>
+        <p>[Demonstração]</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Criando páginas dinâmicas em PHP</h2>
+        <h3>Informações básicas:</h3>
+        <ul>
+          <li>Por padrão, o XAMPP é instalado no caminho <b>C:\xampp</b>.</li>
+          <li>Todas as páginas que você criar deve estar dentro do diretório <b>htdocs</b>.</li>
+          <li>Dentro de <b>htdocs</b> você deverá criar um diretório para cada projeto.</li>
+          <li><b>Atenção</b>: os nomes dos diretórios e arquivos não devem conter espaços.</li>
+        </ul>
+      </div>
+
+      <div class="step basic">
+        <h2>"Hello, world!"</h2>
+        <p>Digite o código abaixo no seu editor de texto e salve como <b>exercicio1.php</b> dentro do diretório <b>"aulasphp"</b> dentro de <b>htdocs</b>:</p>
+        <pre><code class="php">&lt;?php
+  echo "Hello, world!";
+?&gt;</code></pre>
+        <p>Execute o código abrindo o link <b><a href="http://localhost/aulasphp/exercicio1.php">http://localhost/aulasphp/exercicio1.php</a></b> em seu navegador de internet.</p>
+      </div>
+
+      <div class="step basic">
+        <h2>Entendendo o código</h2>
+        <ol>
+          <li>Para que o servidor interprete o código php, o mesmo deve estar dentro da tag <code>&lt;?php ... ?&gt;</code></li>
+          <li>A instrução/comando <code>echo</code> tem a função de escrever na tela do navegador, ou seja, devolve em formato HTML o código php processado no servidor.</li>
+        </ol>
+        <pre><code class="php">&lt;?php
+  echo "Hello, world!";
+?&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Comentário de uma linha</h2>
+        <p>Para criar comentários de apenas uma linha em PHP utilizamos <code>//</code> (duas barras).</p>
+        <p>Tudo que seguir <code>//</code> em uma linha de código será ignorado pelo interpretador PHP.</p>
+        <p><b>exemplo2.php</b></p>
+        <pre><code class="php">&lt;?php
+  // Isto é um comentário de uma linha que será ignorado pelo interpretador PHP.
+  echo "Você está lendo uma página dinâmica PHP."
+?&gt;</code></pre>
+      </div>
+
+      <div class="step basic">
+        <h2>Comentário de várias linhas</h2>
+        <p>Podemos digitar várias linhas de comentário desde que estejam entre <code>/*</code> e <code>*/</code>.</p>
+        <p><b>exemplo3.php</b></p>
+        <pre><code class="php">&lt;?php
+  /*
+    Isto é um comentário de várias linhas.
+    Tudo que for digitado aqui, mesmo que em várias linhas,
+    será ignorado pelo interpretador PHP.
+  */
+  echo "Você está lendo uma página dinâmica PHP."
+?&gt;</code></pre>
+      </div>
+
+    </div>
+
+    <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+    <script>
+      $(function() {
+        var y = 1000;
+        $('.step.basic').each(function(i) {
+          $(this).attr('data-y', y);
+          y += 1000;
+        });
+        impress().init();
+      });
+    </script>
+    <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="../../common/js/custom.js"></script>
+
+  </body>
+</html>

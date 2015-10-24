@@ -282,38 +282,40 @@ document.write("A área do retângulo é: ", areaRetangulo);</code></pre>
       </div>
 
       <div class="step basic">
-        <h2>Captura de eventos</h2>
-        <p>Usando declaração inline e incorporada de código JS para capturar eventos:</p>
-        <pre><code class="html">&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Exemplo&lt;/title&gt;
-  &lt;script&gt;
-    function acao() {
-      alert("Opa! Você acabou de clicar no campo de email.");
-    }
-  &lt;/script&gt;
-&lt;/head&gt;
-&lt;body&gt;
-  Email: &lt;input id="email" type="email" onClick="acao();"&gt;
-&lt;/body&gt;</code></pre>
+        <h2>Declaração inline e incorporada de JS para captura de eventos</h2>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html lang="pt-br"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;Exemplo&lt;/title&gt;
+    &lt;script&gt;
+      function acao() {
+        alert("Opa! Você acabou de clicar no campo de email.");
+      }
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Email: &lt;input id="email" type="email" onClick="acao();"&gt;
+  &lt;/body&gt;
+&lt;/html&gt;</code></pre>
       </div>
 
       <div class="step basic">
-        <h2>Captura de eventos</h2>
-        <p>Usando declaração externa de código JS para capturar eventos:</p>
-        <pre><code class="html">&lt;head&gt;
-  &lt;meta charset="UTF-8"&gt;
-  &lt;title&gt;Exemplo&lt;/title&gt;
-  &lt;script&gt;
-    function acao() {
-      alert("Opa! Você acabou de clicar no campo de email.");
-    }
-    document.getElementById("email").onclick = acao;
-  &lt;/script&gt;
-&lt;/head&gt;
+        <h2>Declaração externa de JS para captura de eventos</h2>
+        <p>HTML:</p>
+        <pre><code class="html">...
 &lt;body&gt;
   Email: &lt;input id="email" type="email"&gt;
-&lt;/body&gt;</code></pre>
+  &lt;!-- Importa código JS quando todos os elementos do corpo do HTML já estão carregados --&gt;
+  &lt;script scr="script.js"&gt;&lt;/script&gt; 
+&lt;/body&gt;
+...</code></pre>
+        <p>JavaScript:</p>
+        <pre><code class="javascript">// Arquivo script.js
+function acao() {
+  alert("Opa! Você acabou de clicar no campo de email.");
+}
+document.getElementById("email").onclick = acao;</code></pre>
       </div>
 
       <div class="step basic">

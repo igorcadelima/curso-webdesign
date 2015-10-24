@@ -111,7 +111,7 @@ obj1 == obj2; // false</code></pre>
       <div class="step basic">
         <h2>Validação do campo nome</h2>
         <p>HTML:</p>
-        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="validaNome();"&gt;
+        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="return validaNome();"&gt;
   Nome: &lt;input type="text" id="nome"&gt; &lt;br/&gt;
   &lt;input type="submit" id="enviar" value="Enviar"&gt;
 &lt;/form&gt;</code></pre>
@@ -140,7 +140,7 @@ obj1 == obj2; // false</code></pre>
         <h2>Validação do campo email</h2>
         <p>Poderíamos fazer quase a mesma ideia do exemplo anterior para validar um campo de email. No entanto, para o nosso caso, HTML5 nos provê uma maneira bem mais fácil de lidar com esse tipo de validação.</p>
         <p>HTML:</p>
-        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="validaEmail();"&gt;
+        <pre><code class="html">&lt;form action="" id="cadastro" onSubmit="return validaEmail();"&gt;
   Email: &lt;input type="email" id="email"&gt; &lt;br/&gt;
   &lt;input type="submit" id="enviar" value="Enviar"&gt;
 &lt;/form&gt;</code></pre>

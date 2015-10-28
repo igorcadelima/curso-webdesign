@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>PHP e MySQL - Aula 03</title>
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+	<link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+	<link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+	<div id="impress">
+
+		<div class="step basic">
+			<h1>PHP e MySQL</h1>
+			<p>
+				Aula 03 - Vetores e Operadores
+			</p>
+			<p>
+				Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+			</p>
+		</div>
+		
+		<div class="step basic">
+			<h2>O tipo vetor (array)</h2>
+			<p>Array é um tipo especial de variável capaz de armazenar mais de um valor ao mesmo tempo.</p>
+			<p>Como você representaria em seu programa uma lista de 50 produtos?</p>
+			<p class="centre">
+				<img class="halfWidth" src="img/memoria.gif" alt="Representação da memória de computador.">
+			</p>
+		</div>
+
+		<div class="step basic">
+			<h2>Criando vetores</h2>
+			<p>Em PHP, a função <code>array()</code> é usada para criar um array.</p>
+			<h4>exemplo11.php</h4>
+			<pre><code class="html">&lt;?php
+  $lista = array("Laranja", "Abacaxi", "Uva"); // lista iniciada com 3 elementos
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Arrays em PHP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;!-- print_r exibe informação sobre variáveis de maneira mais amigável --&gt;
+  &lt;pre&gt;&lt;?php print_r($lista); ?&gt;&lt;/pre&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+			<p class="note">Mais sobre a função <a href="http://php.net/manual/pt_BR/function.print-r.php">print_r</a>.</p>
+		</div>
+
+		<div class="step basic">
+			<h2>Array indexado</h2>
+			<p>Cada valor inserido em um vetor ocupa uma posição que pode ser referenciada por um índice númerico.</p>
+			<p>Como mostrado no exemplo anterior, por padrão, a contagem dos índices inicia-se pelo valor 0.</p>
+			<p class="centre">
+				<img src="img/vetor-exemplo1.png" alt="Exemplo vetor." width="60%">
+			</p>
+		</div>
+
+		<div class="step basic">
+			<h2>Array indexado</h2>
+			<h4>exemplo12.php</h4>
+			<pre><code class="php">&lt;?php
+  $lista = array("Laranja", "Abacaxi", "Uva"); // lista iniciada com 3 elementos
+  echo "O elemento no índice 0 do vetor é: $array[0].&lt;br&gt;";	// Escreve "Laranja"
+  echo "O elemento no índice 1 do vetor é: $array[1].&lt;br&gt;";	// Escreve "Abacaxi" 
+  echo "O elemento no índice 2 do vetor é: $array[2].&lt;br&gt;";	// Escreve "Uva"
+  echo "O elemento no índice 3 do vetor é: $array[3].&lt;br&gt;";	// Erro: não existe índice 3
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Arrays associativos</h2>
+			<p>Em arrays associativos, ao invés de usar números como índices, usa-se chaves nomeadas (strings).</p>
+			<p>Arrays associativos são formados por pares de chave-valor.</p>
+			<p class="centre">
+				<img src="img/vetor-exemplo2.png" alt="Exemplo de vetor associativo." width="80%">
+			</p>
+		</div>
+
+		<div class="step basic">
+			<h2>Arrays associativos</h2>
+			<h4>exemplo12.php</h4>
+			<pre><code class="php">&lt;?php
+  $doc = array();
+  $doc['nome'] 	= "Igor";
+  $doc['fone'] 	= "(82)99999-0000";
+  $doc['email']	= "prof.igor@microcamp.com.br";
+  echo $doc['email'];
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Arrays associativos</h2>
+			<p>Podemos criar um vetor, definir índices de chaves associativas e atribuir valor ao mesmo tempo usando o operador <b>=></b>.</p>
+			<h4>exemplo13.php</h4>
+			<pre><code class="php">&lt;?php
+  $doc = array("nome" => "Igor", "fone" => "(82)99999-0000", "email" => "prof.igor@microcamp.com.br");
+  echo $doc['fone'];
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic centre">
+			<h1>Operadores</h1>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores em PHP</h2>
+			<p>Operadores são usados para realizar operações sobre variáveis e valores.</p>
+			<p>Nesse módulo iremos dar uma olhada nos seguintes tipos de operadores:</p>
+			<ul>
+				<li>de string</li>
+				<li>aritméticos</li>
+				<li>de incremento/decremento</li>
+				<li>de atribuição</li>
+				<li>lógicos</li>
+				<li>de comparação</li>
+			</ul>
+		</div>
+
+		<div class="step basic">
+			<h2>Operador de string</h2>
+			<p>O operador <b>.</b> (concatenação) é utilizado quando queremos juntar uma cadeia de string com uma outra.</p>
+			<h4>exercicio1.php</h4>
+			<pre><code class="php">&lt;?php
+  $string1 = "PHP";
+  $string2 = "rocks";
+	
+  // string1 junta com "espaço" que junta com string2
+  echo $string1 . " " . $string2;
+?&gt;</code></pre>
+		</div>
+		
+		<div class="step basic">
+			<h2>Operadores aritméticos</h2>
+			<p>Operadores aritméticos só podem ser usados quando os operandos são números (integer ou float). Se forem de outro tipo, terão seus valores convertidos antes da realização da operação.</p>
+			<table border="1" style="margin: auto; width:90%; ">
+				<thead>
+					<tr>
+						<th>Operador</th>
+						<th>Nome</th>
+						<th>Exemplo</th>
+						<th>Resultado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>+</td>
+						<td>Adição</td>
+						<td>$x + $y</td>
+						<td>Soma de x e y</td>
+					</tr>
+					<tr>
+						<td>-</td>
+						<td>Subtração</td>
+						<td>$x - $y</td>
+						<td>Diferença de x e y</td>
+					</tr>
+					<tr>
+						<td>*</td>
+						<td>Multiplicação</td>
+						<td>$x * $y</td>
+						<td>Produto de x e y</td>
+					</tr>
+					<tr>
+						<td>/</td>
+						<td>Divisão</td>
+						<td>$x / $y</td>
+						<td>Quociente de x e y</td>
+					</tr>
+					<tr>
+						<td>%</td>
+						<td>Módulo</td>
+						<td>$x % $y</td>
+						<td>Resto de x dividido por y</td>
+					</tr>
+					<tr>
+						<td>**</td>
+						<td>Exponenciação</td>
+						<td>$x ** $y</td>
+						<td>Resultado de x elevado à y</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores aritméticos</h2>
+			<h4>exercicio2.php</h4>
+			<pre><code class="php">&lt;?php
+  $valor1 = 10;
+  $valor2 = 4;
+
+  echo "&lt;h2&gt;Operadores aritméticos&lt;/h2&gt;";
+  echo "&lt;p&gt;Adição: " . ($valor1 + $valor2) . "&lt;/p&gt;";
+  echo "&lt;p&gt;Subtração: " . ($valor1 - $valor2) . "&lt;/p&gt;";
+  echo "&lt;p&gt;Multiplicação: " . ($valor1 * $valor2) . "&lt;/p&gt;";
+  echo "&lt;p&gt;Divisão: " . ($valor1 / $valor2) . "&lt;/p&gt;";
+  echo "&lt;p&gt;Módulo: " . ($valor1 % $valor2) . "&lt;/p&gt;";
+  echo "&lt;p&gt;Exponenciação: " . ($valor1 ** $valor2) . "&lt;/p&gt;";
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores de incremento/decremento</h2>
+			<p>São usados para incrementar ou decrementar o valor de uma variável.</p>
+			<table border="1" style="margin: auto; width:90%; ">
+				<thead>
+					<tr>
+						<th>Operador</th>
+						<th>Nome</th>
+						<th>Resultado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>++$x</td>
+						<td>Pré-incremento</td>
+						<td>Incrementa 1 em x e então retorna resultado</td>
+					</tr>
+					<tr>
+						<td>$x++</td>
+						<td>Pós-incremento</td>
+						<td>Retorna resultado e então incrementa 1 em x</td>
+					</tr>
+					<tr>
+						<td>--$x</td>
+						<td>Pré-decremento</td>
+						<td>Decrementa 1 de x e então retorna resultado</td>
+					</tr>
+					<tr>
+						<td>$x--</td>
+						<td>Pós-decremento</td>
+						<td>Retorna resultado e então decrementa 1 de x</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores de incremento/decremento</h2>
+			<h4>exercicio3.php</h4>
+			<pre><code class="php">&lt;?php
+  $x = 10;
+  echo "&lt;h3&gt;Operadores de incremento&lt;/h3&gt;";
+  echo 'Valor de $x = ' . $x . ';&lt;br&gt;&lt;br&gt;';
+
+  $y = $x++;
+  echo '$y = $x++;&lt;br&gt;';
+  echo 'Resultado: y = ' . $y . '&lt;br&gt;';
+  echo 'Valor de $x = ' . $x . '&lt;br&gt;&lt;br&gt;';
+
+  $y = ++$x;
+  echo '$y = ++$x;&lt;br&gt;';
+  echo 'Resultado: $y = ' . $y . '&lt;br&gt;';
+  echo 'Valor de $x = ' . $x . '&lt;br&gt;';
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores de atribuição</h2>
+			<p>Existe um operador básico de atribuição (=) do qual todos os outros são derivados.</p>
+			<p>Um operador de atribuição atribui um valor ao operando à sua esquerda baseado no valor do operando à direita.</p>
+      <table border="1" style="margin: auto; width: 70%; ">
+        <thead>
+          <tr>
+            <th>Atribuição</th>
+            <th>Equivalente a</th>
+            <th>Descrição</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>$x = $y</td>
+            <td>$x = $y</td>
+            <td>Atribuição simples</td>
+          </tr>
+          <tr>
+            <td>$x += $y</td>
+            <td>$x = $x + $y</td>
+            <td>Atribuição com adição</td>
+          </tr>
+          <tr>
+            <td>$x -= $y</td>
+            <td>$x = $x - $y</td>
+            <td>Atribuição com subtração</td>
+          </tr>
+          <tr>
+            <td>$x *= $y</td>
+            <td>$x = $x * $y</td>
+            <td>Atribuição com multiplicação</td>
+          </tr>
+          <tr>
+            <td>$x /= $y</td>
+            <td>$x = $x / $y</td>
+            <td>Atribuição com divisão</td>
+          </tr>
+          <tr>
+            <td>$x %= $y</td>
+            <td>$x = $x % $y</td>
+            <td>Atribuição com módulo</td>
+          </tr>
+          <tr>
+            <td>$x .= $y</td>
+            <td>$x = $x . $y</td>
+            <td>Atribuição com concatenação</td>
+          </tr>
+        </tbody>
+      </table>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores de atribuição - exericio4.php</h2>
+			<pre style="font-size: .65em; line-height: 1.3;"><code class="php">&lt;?php
+  $valor = 100; // Atribui 100 à $valor
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 100
+
+  $valor += 50; // Igual a $valor = $valor + 50;
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 150
+
+  $valor -= 25; // Igual a $valor = $valor - 25;
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 125
+
+  $valor *= 2; // Igual a $valor = $valor * 2;
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 250
+
+  $valor /= 2; // Igual a $valor = $valor / 2;
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 125
+
+  $valor %= 3; // Igual a $valor = $valor % 50;
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // 2
+
+  $valor .= 99; // Junta o valor "2" com "99"
+  echo "&lt;p&gt;Valor é: $valor &lt;/p&gt;";  // "299"
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores lógicos</h2>
+			<p>Estes operadores sempre retornam um valor booleano (TRUE ou FALSE) baseado numa expressão condicional.</p>
+			<table border="1" style="margin: auto; width:90%; ">
+				<thead>
+					<tr>
+						<th>Operador</th>
+						<th>Nome</th>
+						<th>Exemplo</th>
+						<th>Resultado</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>&amp;&amp;</td>
+						<td>E</td>
+						<td>$x &amp;&amp; $y</td>
+						<td>TRUE se ambos $x e $y são TRUE</td>
+					</tr>
+					<tr>
+						<td>||</td>
+						<td>OU</td>
+						<td>$x || $y</td>
+						<td>TRUE se $x ou $y é TRUE</td>
+					</tr>
+					<tr>
+						<td>AND</td>
+						<td>E</td>
+						<td>$x AND $y</td>
+						<td>TRUE se ambos $x e $y são TRUE</td>
+					</tr>
+					<tr>
+						<td>OR</td>
+						<td>OU</td>
+						<td>$x OR $y</td>
+						<td>TRUE se $x ou $y é TRUE</td>
+					</tr>
+					<tr>
+						<td>XOR</td>
+						<td>OU exclusivo</td>
+						<td>$x XOR $y</td>
+						<td>TRUE se ou $x ou $y é TRUE</td>
+					</tr>
+					<tr>
+						<td>!</td>
+						<td>Não (inversão)</td>
+						<td>!$x</td>
+						<td>TRUE se $x é FALSE, FALSE se $x é TRUE</td>
+					</tr>
+				</tbody>
+			</table>
+			<p class="note"><a href="http://php.net/manual/pt_BR/language.operators.precedence.php">Precedência de operadores</a></p>
+		</div>
+
+		<div class="step basic">
+			<h2>Operadores de comparação</h2>
+			<p>Estes operadores sempre retornam um valor booleano (TRUE ou FALSE) baseado numa comparação entre dois valores (numérico ou literal).</p>
+			<table border="1" style="margin: auto; width:90%; ">
+				<tr>
+					<th style="width:15%">Operador</th>
+					<th style="width:22%">Nome</th>
+					<th style="width:15%">Exemplo</th>
+					<th style="width:38%">Resultado</th>
+				</tr>
+				<tr>
+					<td>==</td>
+					<td>Valor igual a</td>
+					<td>$x == $y</td>
+					<td>TRUE se $x é igual a $y</td>
+				</tr>
+				<tr>
+					<td>===</td>
+					<td>Valor e tipo igual a</td>
+					<td>$x === $y</td>
+					<td>TRUE se $x é igual a $y e tem o mesmo tipo</td>
+				</tr>
+				<tr>
+					<td>!=</td>
+					<td>Diferente de</td>
+					<td>$x != $y</td>
+					<td>TRUE se $x é diferente de $y</td>
+				</tr>
+				<tr>
+					<td>!==</td>
+					<td>Valor ou tipo diferente de</td>
+					<td>$x !== $y</td>
+					<td>TRUE se $x não é igual a $y ou é de tipo diferente</td>
+				</tr>
+				<tr>
+					<td>&gt;</td>
+					<td>Maior que</td>
+					<td>$x &gt; $y</td>
+					<td>TRUE se $x é maior que $y</td>
+				</tr>
+				<tr>
+					<td>&lt;</td>
+					<td>Menor que</td>
+					<td>$x &lt; $y</td>
+					<td>TRUE se $x é menor que $y</td>
+				</tr>
+				<tr>
+					<td>&gt;=</td>
+					<td>Maior ou igual a</td>
+					<td>$x &gt;= $y</td>
+					<td>TRUE se $x é maior ou igual a $y</td>
+				</tr>
+				<tr>
+					<td>&lt;=</td>
+					<td>Menor ou igual a</td>
+					<td>$x &lt;= $y</td>
+					<td>TRUE se $x é menor ou igual a $y</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="step basic">
+			<h2>Operador ternário</h2>
+			<p>Esse é um tipo de operador condicional que serve como maneira abreviada de usar o comando <b>if</b>.</p>
+			<p>Se uma condição for avaliada como verdadeira, um valor é atribuído à variável. Caso contrário, um outro valor será atribuído.</p>
+			<h4>exercicio4.php</h4>
+			<pre><code class="php">&lt;?php
+  $nota = 4;
+  $resultado = ($nota &gt; 7) ? "Aprovado" : "Reprovado";
+  echo "Resultado da nota: $resultado.";
+?&gt;</code></pre>
+		</div>
+	</div>
+
+	<script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../../common/bower_components/impress.js/js/impress.js"></script>
+	<script>
+		$(function() {
+			var y = 1000;
+			$('.step.basic').each(function(i) {
+				$(this).attr('data-y', y);
+				y += 1000;
+			});
+			impress().init();
+		});
+	</script>
+	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

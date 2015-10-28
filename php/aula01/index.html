@@ -170,6 +170,25 @@
 ?&gt;</code></pre>
       </div>
 
+      <div class="step basic">
+        <h2>PHP e HTML</h2>
+        <p>Não precisamos usar o comando <code>echo</code> para escrever um documento HTML por inteiro.</p>
+        <p>Podemos facilmente misturar nosso código PHP dentro de uma página HTML.</p>
+        <p><b>exercicio4.php</b></p>
+        <pre><code class="html">&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Exercício 4 de PHP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;Este é o primeiro parágrafo.&lt;/p&gt;
+  &lt;p&gt;&lt;?php echo "Este é o segundo parágrafo."; ?&gt;&lt;/p&gt;
+  &lt;p&gt;Este é o terceiro paragráfo.&lt;/p&gt;
+  &lt;?php echo "&lt;p&gt;Este é o quarto parágrafo.&lt;/p&gt;"; ?&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+      </div>
+
     </div>
 
     <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>

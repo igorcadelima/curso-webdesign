@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<title>PHP e MySQL - Aula 02</title>
+	<link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+	<link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+	<link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+	<div id="impress">
+
+		<div class="step basic">
+			<h1>PHP e MySQL</h1>
+			<p>
+				Aula 02 - Constantes, variáveis e tipos de dados
+			</p>
+			<p>
+				Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+			</p>
+		</div>
+
+		<div class="step basic">
+			<h2>Constantes</h2>
+			<ul>
+				<li>Uma constante é um identificador para um único valor imutável.</li>
+				<li>O valor de uma constante não pode ser alterado durante a execução do programa.</li>
+				<li>Nomes de constantes devem conter caracteres especiais ou espaços.</li>
+				<li>É boa prática começar nomes de constantes com letra ou <i>underline</i> (_).</li>
+				<li>Por convenção, identificadores de constantes são sempre escritos com letras maiúsculas.</li>
+			</ul>
+		</div>
+
+		<div class="step basic">
+			<h2>Constantes</h2>
+			<p><b>exercicio1.php</b></p>
+			<pre><code class="php">&lt;?php
+  // Nomes válidos de constantes
+  define("BOLA1", "Futebol");
+  define("BOLA2", "Basquete");
+  define("BOLA_3", "Ping-pong");
+
+  echo BOLA1 . "&lt;br&gt;";	// O operador . é usado para concatenar as strings
+  echo BOLA2 . "&lt;br&gt;";
+  echo BOLA_3;
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Variáveis</h2>
+			<p>Ao contrário das constantes, valores de variáveis podem ser alterados em qualquer momento da execução do programa.</p>
+			<h4>Regras de variáveis PHP:</h4>
+			<ul>
+				<li>Uma variável começa com o caractere <b>$</b> (cifrão), seguido pelo nome da variável</li>
+				<li>O nome de uma variável deve começar com uma letra ou <i>underline</i></li>
+				<li>O nome de uma variável não pode conter caracteres especiais (ex. á, ç, õ, @, etc) ou espaços, apenas caracteres alfa-numéricos e <i>underlines</i></li>
+				<li>Nomes de variáveis são sensíveis à capitalização (<i>case-sensitive</i>) (ex. $nome e $NOME são duas variáveis diferentes)</li>
+			</ul>
+		</div>
+
+		<div class="step basic">
+			<h2>Variáveis</h2>
+			<p><b>exercicio2.php</b></p>
+			<pre><code class="php">&lt;?php
+  $valor1 = 100;	// Todas as letras dessa variável são minúsculas
+  $Valor1 = 200;	// Apenas a primeira letra dessa variável é maiúscula
+  $VALOR1 = 300;	// Todas as letras dessa variável são maiúsculas
+
+  echo "$valor1 - $Valor1 - $VALOR1";	// 100 - 200 - 300
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>Variáveis</h2>
+			<h4>exercicio3.php</h4>
+			<pre><code class="php">&lt;?php
+  $valorUm	= 1500;	
+  $valorDois 	= 1100;
+
+  $idadeFuncionario 	= 36;
+  $idadeCliente 	= 26;
+
+  echo "A idade do cliente é $idadeCliente e a do funcionário é $idadeFuncionario.&lt;br&gt;";
+  echo "O valor do produto que o cliente quer comprar é $valorUm, mas ele só quer pagar $valorDois.";
+?&gt;</code></pre>
+		</div>
+		
+		<div class="step basic">
+			<h2>Tipos de dados em PHP</h2>
+			<p>Existem 8 tipos de dados primitivos em PHP:</p>
+			<ul>
+				<li><i>integer</i></li>
+				<li><i>float</i> (ou <i>double</i>)</li>
+				<li><i>string</i></li>
+				<li><i>boolean</i></li>
+				<li><i>array</i></li>
+				<li><i>object</i></li>
+				<li><i>resource</i></li>
+				<li><i>NULL</i></li>
+			</ul>
+			<p class="note">Mais detalhes sobre <a href="https://secure.php.net/manual/pt_BR/language.types.resource.php">resource</a>.</p>
+		</div>
+
+		<div class="step basic">
+			<h2>O tipo inteiro (<i>integer</i>)</h2>
+			<p>Um inteiro é qualquer número sem casas decimais, positivo ou negativo.</p>
+			<h4>exemplo4.php</h4>
+			<pre><code class="html">&lt;?php
+  // Declaração de uma variável como inteiro
+  $idadeAluno = 18;
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Tipo inteiro em PHP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;O aluno tem &lt;?php echo $idadeAluno; ?&gt; anos de idade.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>O tipo <i>float</i> ou <i>double</i></h2>
+			<p>Também chamado de número de ponto flutuante, um <i>float</i> (ou <i>double</i>) é qualquer número real.</p>
+			<h4>exemplo5.php</h4>
+			<pre><code class="html">&lt;?php
+  // Definição de uma constante como float
+  define("PI", 3.14159265);
+?&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Tipo float em PHP&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;p&gt;O valor de pi é &lt;?php echo PI; ?&gt;.&lt;/p&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>O tipo <i>string</i></h2>
+			<p>Uma <i>string</i> é uma série/cadeia de caracteres.</p>
+			<p>Para declarar strings podemos usar aspas simples ('') ou aspas duplas ("").</p>
+			<h4>exemplo6.php</h4>
+			<pre><code class="php">&lt;?php
+  $nome1 = "Mario";	// string criada com aspas duplas
+  $nome2 = 'Luigi';	// string criada com aspas simples
+
+  echo "&lt;h2&gt;A dupla dinâmica: $nome1 e $nome2!&lt;/h2&gt;";
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>String com aspas simples</h2>
+			<p>String com aspas simples serão exibidas <u>quase</u> como elas realmente são.</p>
+			<p>Variáveis não são interpretadas.</p>
+			<p>Para exibir uma aspa simples é necessário escapá-la com uma contra-barra (<code>\'</code>) e para exibir uma contra-barra é necessário escapá-la com outra contra-barra (<code>\\</code>).</p>
+			<h4>exemplo7.php</h4>
+			<pre><code class="php">&lt;?php
+  $texto = 'Sonic "atravessou" a caixa d\'água.';	// contra-barra usada para exibir aspa simples
+
+  echo 'A variável $texto não foi interpretada.&lt;br&gt;';
+  echo $texto;
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>String com aspas duplas</h2>
+			<p>String com aspas duplas serão exibidas com os valores das variáveis interpretados.</p>
+			<p>Para exibir uma aspa dupla é necessário escapá-la com uma contra-barra (<code>\"</code>) e para exibir uma contra-barra é necessário escapá-la com outra contra-barra (<code>\\</code>).</p>
+			<h4>exemplo8.php</h4>
+			<pre><code class="php">&lt;?php
+  $texto = "Sonic \"atravessou\" a caixa d'água.";	// contra-barra usada para exibir aspas duplas
+
+  echo "O conteúdo da variável é: $texto";
+?&gt;</code></pre>
+		</div>
+		
+		<div class="step basic">
+			<h2>O tipo booleano (<i>boolean</i>)</h2>
+			<p>Esse tipo de dados apenas aceita os valores <b>TRUE</b> (verdadeiro) ou <b>FALSE</b> (para falso).</p>
+			<p>O tipo booleano é <i>case-insensitive</i> (insensível à capitalização). No entanto, prefira usar ou TRUE e FALSE ou true e false.</p>
+			<h4>exemplo9.php</h4>
+			<pre><code class="php">&lt;?php
+  $verdadeiro 	= TRUE; 	// True, true, TrUe, etc. seria a mesma coisa.
+  $falso 	= FALSE;	// False, false, FaLsE, etc. seria a mesma coisa.
+?&gt;</code></pre>
+		</div>
+
+		<div class="step basic">
+			<h2>O tipo nulo (<i>NULL</i>)</h2>
+			<p><b>NULL</b> é o único valor possível do tipo NULL.</p>
+			<p>O valor especial <b>NULL</b> indica que a variável não tem valor.</p>
+			<p>O tipo NULL também é <i>case-insensitive</i> mas prefira sempre utilizar ou NULL ou null.</p>
+			<h4>exemplo10.php</h4>
+			<pre><code class="php">&lt;?php
+  $nulo = NULL;	// Declaração de uma variável nula
+  echo $nulo;
+?&gt;</code></pre>
+		</div>
+
+	</div>
+
+	<script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="../../common/bower_components/impress.js/js/impress.js"></script>
+	<script>
+		$(function() {
+			var y = 1000;
+			$('.step.basic').each(function(i) {
+				$(this).attr('data-y', y);
+				y += 1000;
+			});
+			impress().init();
+		});
+	</script>
+	<script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+	<script>hljs.initHighlightingOnLoad();</script>
+	<script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

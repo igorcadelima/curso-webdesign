@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 04</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 04 - Estruturas de decisão
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Estruturas de decisão</h2>
+      <p>Utilizam-se estruturas de decisão quando desejamos executar determinado conjunto de instruções para uma dada condição.</p>
+      <p>Em PHP temos as seguintes declarações condicionais:</p>
+      <ul>
+        <li><b>if</b></li>
+        <li><b>elseif</b></li>
+        <li><b>else</b></li>
+      </ul>
+    </div>
+    
+    <div class="step basic">
+      <h2>Desvio condicional simples: if</h2>
+      <p><b>if</b> serve para executar todo o código de instrução localizado entre as chaves do comando após a condição caso o resultado da avaliação lógica seja verdadeiro (<b>true</b>).</p>
+      <h4>exercicio1.php:</h4>
+      <pre><code class="php">&lt;?php
+  $nota = 10;
+
+  if ( $nota &gt;= 7 ) {
+    echo 'O aluno foi aprovado.';
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Desvio condicional composto: if ... else</h2>
+      <p>O comando <b>else</b> é utilizado logo após a estrutura de controle <b>if</b> ou <b>elseif</b>.</p>
+      <p>Sempre que as condições <b>if</b> e <b>elseif</b> da mesma estrutura retornarem <b>false</b> o comando <b>else</b> será executado.</p>
+      <h4>exercicio2.php</h4>
+      <pre><code class="html">&lt;?php
+  $nota = 5;
+
+  if ( $nota &gt;= 7 ) {
+    echo 'O aluno foi aprovado.';
+  } else {
+    echo 'O aluno foi reprovado.';
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Outro desvio condicional composto: if ... elseif ... else</h2>
+      <p>Com <b>elseif</b> pode-se adicionar outras condições à estrutura.</p>
+      <p>Uma condição <b>elseif</b> só será executada caso as condições anteriores a ela sejam avaliadas como falsas (<b>false</b>).</p>
+      <h4>exercicio3.php:</h4>
+      <pre><code class="html">&lt;?php
+  $nota = 6;
+
+  if ( $nota &gt;= 7 ) {
+    echo 'O aluno foi aprovado.';
+  } elseif ( $nota &gt;= 5) {
+    echo 'O aluno está de recuperação.';
+  } else {
+    echo 'O aluno foi reprovado.';
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estruturas de decisão - exercício</h2>
+      <p>Crie um programa que verifique se o valor armazenado na variável <b>totalCompra</b> e, baseado no valor armazenado, escreva na página quanto de desconto o cliente tem direito. As condições são as seguintes:</p>
+      <ul>
+        <li>escreva "Você tem direito a 5% de desconto." caso o valor seja menor que 100;</li>
+        <li>escreva "Você tem direito a 10% de desconto." caso o valor seja maior ou igual a 100 e menor que 300;</li>
+        <li>escreva "Você tem direito a 15% de desconto." caso o valor seja maior ou igual a 300.</li>
+      </ul>
+      <p><b>Salve seu programa como exercicio4.php.</b></p>
+    </div>
+
+    <div class="step basic">
+      <h2>A estrutura de decisão switch ... case ... default</h2>
+      <p>A estrutura <b>switch</b> é parecida com uma série de <b>if</b> e <b>elseif</b>s numa mesma estrutura.</p>
+      <p>O <b>switch</b> permite que uma variável seja testada comparando a igualdade de seu valor (==) com uma lista de diferentes casos.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio4.php
+  $opcao = 2;
+  switch ($opcao) {
+    case 0:
+      echo "A opção escolhida foi 0.";
+      break;
+    case 1:
+      echo "A opção escolhida foi 1.";
+      break;
+    case 2:
+      echo "A opção escolhida foi 2.";
+      break;
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A estrutura de decisão switch ... case ... default</h2>
+      <p>O código equivalente do exercicio4.php usando a estrutura <b>if</b> seria o seguinte:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio5.php
+  $opcao = 0;
+
+  if ( $opcao == 0 ) {
+    echo "A opção escolhida foi 0.";
+
+  } elseif ( $opcao == 1 ) {
+    echo "A opção escolhida foi 1.";
+
+  } elseif ( $opcao == 2 ) {
+    echo "A opção escolhida foi 2.";
+
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A estrutura de decisão switch ... case ... default</h2>
+      <p>Outro exemplo utilizando a estrutura <b>switch</b>.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio6.php
+  $fruta = "maçã";
+  switch ($fruta) {
+    case "maçã":
+      echo '$fruta é maçã.';
+      break;
+    case "uva":
+      echo '$fruta é uva.';
+      break;
+    case "laranja":
+      echo '$fruta é laranja.';
+      break;
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Entendendo a estrutura switch</h2>
+      <ul>
+        <li>A estrutura é executada linha por linha (na verdade, instrução por instrução)</li>
+        <li>Nada é executado no começo. Somente quando um <b>case</b> com um valor correspondente à variável analisada é encontrado é que as instruções serão executadas.</li>
+        <li>PHP continua executando as instruções até chegar ao fim da <b>switch</b> ou encontrar a instrução <b>break</b>.</li>
+      </ul>
+      <p>Vamos tentar executar o exercício anterior sem usar <b>break</b>:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio7.php
+  $fruta = "maçã";
+  switch ($fruta) {
+    case "maçã":
+      echo '$fruta é maçã.';
+    case "uva":
+      echo '$fruta é uva.';
+    case "laranja":
+      echo '$fruta é laranja.';
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>O caso padrão (default)</h2>
+      <p>Se nenhum <b>case</b> com um valor correspondente à variável analisada é encontrado, então um caso padrão pode ser executado. Esse caso padrão é criado usando a instrução <b>default</b>.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio8.php
+  $opcao = 2;
+  switch ($opcao) {
+    case 0:
+      echo "A opção escolhida foi 0.";
+      break;
+    case 1:
+      echo "A opção escolhida foi 1.";
+      break;
+    case 2:
+      echo "A opção escolhida foi 2.";
+      break;
+    default:
+      echo "Opção escolhida não foi 0, 1, ou 2.";
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício</h2>
+      <p>Crie um programa usando a estrutura <b>switch</b> para dizer qual prêmio você ganhou em um bingo. Para isso, defina uma variável <b>$premio</b> que para armazenar o número da ordem do prêmio (ex. 1 para primeiro, 2 para segundo, etc.). Os prêmios do bingo são os seguintes:</p>
+      <ol>
+        <li>Moto</li>
+        <li>Moto</li>
+        <li>Carro</li>
+        <li>Casa</li>
+      </ol>
+      <p>Caso o valor armazenado em <b>$premio</b> não corresponda a prêmio algum, a mensagem "Não foi dessa vez. Continue tentando." deverá ser escrita na página.</p>
+      <p class="note">Salve o exercício como exercicio9.php</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

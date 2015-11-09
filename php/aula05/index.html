@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 05</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 05 - Estruturas de repetição
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>for</i></h2>
+      <p>Essa estrutura é normalmente utilizada quando conhecemos quantas vezes um bloco de instruções deverá ser executado repetidamente.</p>
+      <p>Sua sintaxe é a seguinte:</p>
+      <pre><b>for</b> (&lt;inicialização&gt;; &lt;condição&gt;; &lt;incremento&gt;) {
+  // instruções
+}</pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>for</i></h2>
+      <p>O comando <code>for</code> possui basicamente 3 parâmetros:</p>
+      <ol>
+        <li>Uma variável numérica com valor inicial para ser incrementado ou decrementado.</li>
+        <li>Uma condição que para controlar o número de iterações no loop.</li>
+        <li>Uma forma de incremento para a variável numérica criada.</li>
+      </ol>
+      <p>Exemplo:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio1.php
+  for ($i = 0; $i &lt; 10; $i++) {
+    echo "A iteração atual é: $i &lt;br&gt;";
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>while</i></h2>
+      <ul>
+        <li>A estrutura <code>while</code> é a mesma coisa que a instrução <code>enquanto ... faca</code> vista nas aulas de lógica de programação.</li>
+        <li><code>while</code> executa as instruções especificas em seu bloco de código enquanto uma dada condição de controle for <b>TRUE</b>.</li>
+        <li>Se a condição for avaliada como <b>FALSE</b>, o processamento é desviado para fora do loop.</li>
+      </ul>
+      <p>Sintaxe:</p>
+      <pre><b>while</b> (<span class="hljs-tag">&lt;condição&gt;</span>) {
+  <span class="hljs-tag">&lt;instruções executadas enquanto condição for verdadeira&gt;</span>
+}</pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>while</i></h2>
+      <pre><code class="php">&lt;?php
+  // exercicio2.php
+  $i = 0;
+  while ($i &lt; 10) {
+    echo "A iteração atual é: $i &lt;br&gt;";
+    $i++; // $i = $i + 1;
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>do ... while</i></h2>
+      <p>A estrutura <code>do ... while</code> é a mesma coisa que a instrução <code>repita ... ate</code> vista nas aulas de lógica de programação.</p>
+      <p>Diferente da estrutura <code>while</code>, um loop <code>do ... while</code> é executado uma vez antes que a condição seja avaliada.</p>
+      <p>Sintaxe:</p>
+      <pre>
+<b>do</b> {
+  <span class="hljs-tag">&lt;bloco de instruções&gt;</span>
+} <b>while</b> (<span class="hljs-tag">&lt;condição&gt;</span>);
+      </pre>
+    </div>
+    
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>do ... while</i></h2>
+      <pre><code class="php">&lt;?php
+  // exercicio3.php
+  $i = 0;
+  do {
+    echo "A iteração atual é: $i &lt;br&gt;";
+    $i++; // $i = $i + 1;
+  } while ($i &gt;= 10);
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A instrução <i>break</i></h2>
+      <p>A instrução <code>break</code> encerra a execução do loop delimitador mais próximo (<code>do</code>, <code>for</code> ou <code>while</code>) na qual ele aparece.</p>
+      <p>Tem por objetivo o cancelamento da execução do loop sem que haja verificação na condição de saída do loop.</p>
+      <p>Exemplo:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio4.php
+  $i = 0;
+  while ($i &lt; 10) {
+    echo "O valor de i é: $i &lt;br&gt;";
+    i++; //i = i + 1;
+    break;
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A instrução <i>break</i></h2>
+      <p>Uma vantagem do uso do <code>break</code> é que ele pode parar o loop dentro de uma condição criada por um <code>if</code>, por exemplo.</p>
+      <p>Exemplo:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio5.php
+  for ($i = 0; $i &lt; 10; $i++) {
+    echo "A valor de i é: $i &lt;br&gt;";
+    if ($i == 4) {
+      break;
+    }
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A instrução continue</h2>
+      <p>A instrução <code>continue</code> transmite o controle para a próxima iteração da instrução <code>do</code>, <code>for</code> ou <code>while</code> delimitadora mais próxima em que aparece.</p>
+      <p>Exemplo:</p>
+      <pre><code class="php">&lt;?php
+  // exercicio6.php
+  $lista = array(1, 33, 5, 2, 5, 93);
+  for ($i = 0; $i &lt;=5; $i++) {
+    if ($lista[$i] == 5) {
+      continue;
+    }
+    echo "O valor de lista[$i] é $lista[$i] &lt;br&gt;";
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>foreach</i></h2>
+      <p>A estrutura <code>foreach</code> fornece uma maneira mais fácil de iterar sobre matrizes.</p>
+      <p><code>foreach</code> funciona somente com arrays e objetos.</p>
+      <p>Existem duas sintaxes:</p>
+      <pre><code class="php">foreach ($matriz as $valor) {
+  // instruções
+}</code></pre>
+      <pre><code class="php">foreach ($matriz as $chave => $valor) {
+  // instruções
+}</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>foreach</i></h2>
+      <pre><code class="php">&lt;?php
+  // exercicio7.php
+  $nomes = array("Guinho", "Zezinho", "Luisinho");
+
+  foreach ($nomes as $nome) {
+    echo "O nome da vez é $nome.&lt;br&gt;";
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Estrutura de repetição <i>foreach</i></h2>
+      <pre><code class="php">&lt;?php
+  // exercicio8.php
+  $doc = array();
+  $doc['nome']  = "Igor";
+  $doc['fone']  = "(82)99999-0000";
+  $doc['email'] = "prof.igor@microcamp.com.br";
+  
+  foreach ($doc as $chave => $valor) {
+    echo "$chave - $valor&lt;br&gt;";
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício - exercicio9.php</h2>
+      <p>Examine o programa abaixo e anote num papel o que você acha que será escrito na página. Em seguida, execute o programa e verifique sua resposta. Houve alguma divergência? Por quê?</p>
+      <pre><code class="php">&lt;?php
+  $i = 1;
+  while ($i &lt;= 20) {		// Enquanto $i menor ou igual a 20 faça ...
+    if ($i >= 3) {		// Se $i maior ou igual a  3 faça ...
+      echo "$i &lt;br&gt;";		// Exibe o valor de $i
+
+      if (($i % 2) == 0) {	// Se resto de $i/2 for igual a 0 faça ...
+        $i += 3;		// $i = $i + 3;
+      } else {
+        $i++;			// $i = $i + 1;
+      }
+    } else {
+      $i++;			// $i = $i + 1;
+    }
+  }
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+    	<h2>Exercício - exercicio9.php</h2>
+    	<p>O programa abaixo usa o comando <code>for</code> para fazer uma determinada quantidade de iterações executando uma instrução em cada uma delas. Examine o programa e responda às questões abaixo. Em seguida, execute o programa e verifique suas respostas.</p>
+    	<pre><code class="php">&lt;?php
+  for ($i = 0; $i &lt; 50; $i += 5) {
+    echo "O valor de i é $i. &lt;br&gt;";
+  }
+?&gt;</code></pre>
+      <p>Quantas iterações o comando realizou?</p>
+      <p>Quais números a variável $i exibiu na página?</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

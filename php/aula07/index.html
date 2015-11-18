@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 07</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 07 - Trabalhando com formulários
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+    
+    <div class="step basic centre">
+      <h2>Para que serve um formulário?</h2>
+    </div>
+
+    <div class="step basic">
+      <h2>Formulários</h2>
+      <p>Por si só, formulários não conseguem enviar dados coletados para lugar algum. Precisamos de uma página dinâmica!</p>
+      <p>PHP só receberá os dados mediante configurações específicas no formulário.</p>
+      <p>Duas propriedades devem ser configuradas: <b>action</b> e <b>method</b>.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Formulários - Exemplo 1</h2>
+      <p>cadastro.php</p>
+      <pre><code class="html">&lt;html&gt;
+&lt;head&gt;
+  &lt;title&gt;Cadastro de contato&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+  &lt;h1&gt;Cadastro de contato&lt;/h1&gt;
+  &lt;form id="cadastro" action="recebe-dados.php" method="post"&gt;
+    Nome: &lt;input type="text" name="nome"&gt;&lt;br&gt;
+    E-mail: &lt;input type="email" name="email"&gt;&lt;br&gt;
+    &lt;input type="submit" value="Enviar dados"&gt;
+  &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A tag &lt;form&gt;</h2>
+      <ul>
+        <li>Tag responsável por criar uma formulário em HTML.</li>
+        <li>Todos os componentes de um formulários devem ficar entre as tags <code>&lt;form&gt;</code> e &lt;/form&gt;</li>
+        <li>Dentro da tag inicial <code>&lt;form&gt;</code> configuramos propriedades para que o formulário envie os dados coletados para uma página dinâmica de destino. Exemplo:
+        <pre><code class="html">&lt;form id="cadastro" action="recebe-dados.php" method="post"&gt;</code></pre></li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Propriedade action</h2>
+      <p>Informa para onde os dados do formulário devem ser transportados.</p>
+      <p>Seu valor deve ser o endereço, estático ou relativo, da página que tratará o formulário.</p>
+      <p>Exemplos:</p>
+      <pre><code>action="recebe-dados.php"</code></pre>
+      <pre><code>action="www.empresa.com.br/recebe-dados.php"</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Propriedade method</h2>
+      <p>Especifica o método de envio dos dados.</p>
+      <p>Seu valor deve ser <b>get</b>(padrão) ou <b>post</b>.</p>
+      <p>Exemplos:</p>
+      <pre><code>method="post"</code></pre>
+      <pre><code>method="get"</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A tag &lt;input&gt;</h2>
+      <ul>
+        <li>Tag marcadora de entrada de dados como, por exemplo, campos de texto, campos de listagens, campos de seleção, etc.</li>
+        <li>Sua sintaxe é <code>&lt;input type="text" name="nome"&gt;</code>, onde <i>type</i> é o tipo de entrada.</li>
+        <li>A propriedade <i>name</i> define o nome de cada item de dados transportado. Atributos dessa propriedade não podem conter espaços ou caracteres especiais, e recomenda-se que sejam escritos em letras minúsculas.</li>
+      </ul>
+      <p class="note"><a href="https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/Input#Atributos">Tipos de entradas de dados da tag <i>input</i>.</a></p>
+    </div>
+
+    <div class="step basic">
+      <h2>O método GET</h2>
+      <ul>
+        <li>Utiliza a própria URL para enviar dados ao servidor.</li>
+        <li>Separa endereço da URL dos dados através de <b>?</b>.</li>
+        <li>O símbolo <b>=</b> define o valor de cada variável.</li>
+        <li>Cada variável com seu valor é separa pelo símbolo <b>&amp;</b>.</li>
+      </ul>
+      <p>Exemplo:</p>
+      <b><pre class="centre">http://www.seusite.com.br/recebe-dados.php?nome=Igor&amp;email=prof.igor%40microcamp.com.br</pre></b>
+    </div>
+
+    <div class="step basic">
+      <h2>O método GET</h2>
+      <h3>Vantagens</h3>
+      <ul>
+        <li>Podemos reaproveitar os dados.</li>
+        <li>Podemos informar dados por links.</li>
+      </ul>
+      <h3>Desvantagens</h3>
+      <ul>
+        <li>Apenas caracteres aceitos na URL podem ser enviados.</li>
+        <li>O número máximo permitido de caracteres é em torno de 2000.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>O método POST</h2>
+      <ul>
+        <li>Coloca os dados a serem enviados em uma mensagem de requisição.</li>
+        <li>Envia qualquer tipo de dado.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>GET vs POST</h2>
+      <p>Quer buscar algo no servidor? <strong>Use GET.</strong></p>
+      <p>Quer inserir/atualizar dado no servidor ou enviar arquivos? <strong>Use POST.</strong></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Recuperando os dados no servidor</h2>
+      <p>PHP disponibiliza dois vetores associativos superglobais que podem ser usados para coletar dados de formulário:</p>
+      <ul>
+        <li><code>$_POST["&lt;nomeDoCampo&gt;"];</code></li>
+        <li><code>$_GET["&lt;nomeDoCampo&gt;"];</code></li>
+      </ul>
+      <p>No formulário, os nomes da propriedade <i>name</i> serão usados como chaves para armazenar os dados.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Recuperando os dados no servidor</h2>
+      <p>Vamos criar o arquivo recebe-dados.php.</p>
+      <pre><code class="php">&lt;?php 
+  if (isset($_POST["nome"]) &amp;&amp; (isset($_POST["email"]))) {
+
+    $nome = $_POST["nome"];
+    $email = $_POST["email"];
+
+    echo "&lt;h2&gt;Dados recebidos com sucesso!&lt;/h2&gt;";
+    echo "Usuário: $nome &lt;br&gt;";
+    echo "E-mail: $email";
+  }
+ ?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício</h2>
+      <p>Crie uma página PHP que contenha um formulário de cadastrode visitante de um site com as informações abaixo. Em seguida, desenvolva uma página PHP que recebe estes dados e os exiba na tela.</p>
+      <ul>
+        <li>Nome</li>
+        <li>Email</li>
+        <li>Telefone</li>
+        <li>Endereço</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

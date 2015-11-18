@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 06</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 06 - Trabalhando com funções
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+    
+    <div class="step basic">
+      <h2>Funções</h2>
+      <ul>
+        <li>Bloco de código reusável com um nome que é designado para realizar uma tarefa em particular.</li>
+        <li>Economiza tempo e trabalho para ações que irão se repetir.</li>
+      </ul>
+      <p>Sintaxe:</p>
+      <pre><b>function</b> &lt;nome_da_funcao&gt; ( &lt;parâmetros&gt;, ...) {
+  // Instruções
+}</pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Funções</h2>
+      <p>Funções são muito importante em sistemas grandes que requerem execução de tarefas rotineiras como, por exemplo, calcular o dobro de um número.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio1.php
+
+  function calcula_dobro($numero) {
+    // Faz o cálculo do dobro do número
+    $resultado = $numero * 2;
+    return $resultado;
+  }
+
+  echo "O dobro de 2 é " . calcula_dobro(2) . "&lt;br&gt;";
+  echo "O dobro de 50 é " . calcula_dobro(50);
+
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Funções</h2>
+      <p>Não há limite de argumentos que podemos passar para uma função.</p>
+      <p>Vamos criar, por exemplo, uma função que calcula a potência de um número elevado à outro.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio2.php
+
+  function potencia($base, $expoente) {
+    // Faz o cálculo da potência
+    $resultado = $base ** $expoente;
+    return $resultado;
+  }
+
+  echo "2 elevado à 3 é " . potencia(2, 3) . "&lt;br&gt;";
+  echo "10 elevado à 2 é " . potencia(10, 2);
+
+?&gt;</code></pre>
+    </div>
+    
+    <div class="step basic">
+      <h2>Funções</h2>
+      <p>Podemos usar também funções dentro de funções. Por exemplo, vamos calcular a raiz quadrada de um número reutilizando a função de calcular potência.</p>
+      <pre><code class="php">&lt;?php
+  // exercicio3.php
+  function potencia($base, $expoente) {
+    $resultado = $base ** $expoente;
+    return $resultado;
+  }
+
+  function raiz_quadrada($numero) {
+    // Faz o cálculo da raiz quadrada do número
+    $resultado = potencia($numero, 1/2);
+    return $resultado;
+  }
+
+  echo "A raiz quadrada de 4 é " . raiz_quadrada(4) . "&lt;br&gt;";
+  echo "A raiz quadrada de 100 é " . raiz_quadrada(100);
+
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício</h2>
+      <p>Crie uma função que aceita dois números e retorna a soma dos mesmos. Escreva na página "A + B = C", onde A e B são os termos da soma e C o resultado. Salve  sua resposta como <b>exercicio4.php</b>.</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 08</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 08 - Banco de dados MySQL (parte 1)
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Introdução</h2>
+      <ul>
+        <li>Bancos de dados são coleções de dados interligados entre si e organizados para fornecer informações.</li>
+        <li>A principal aplicação de Banco de Dados é controle de operações empresariais.</li>
+        <li>O conjunto de programas que responsáveis por gerenciar um banco de dados é chamado Sistema Gerenciador de Banco de Dados (SGBD). Ex.: MySQL.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Banco de dados relacional</h2>
+      <ul>
+        <li>É um banco de dados que modela os dados de forma que eles sejam percebidos pelos usuários como tabelas (relações).</li>
+        <li>A linguagem padrão dos Bancos de Dados Relacionais é a <i>Structured Query Language</i> (SQL).</li>
+      </ul>
+    </div>
+    
+    <div class="step basic">
+      <h2>Modelo relacional</h2>
+      <ul>
+        <li><b>Tabelas (relações)</b>: simples estruturas de linhas e colunas onde dados são armazenados.</li>
+        <li><b>Linhas (registros)</b>: são registros formados por listas ordenadas de colunas.</li>
+        <li><b>Colunas (atributos)</b>: as colunas de uma tabela representam atributos dos registros de tabelas.</li>
+      </ul>
+      <p><b>Como você criaria uma tabela de usuários que tivesse código identificador, nome, login, e senha?</b></p>
+    </div>
+
+    <div class="step basic">
+      <h2>phpMyAdmin</h2>
+      <ul>
+        <li>Ferramenta super fácil para ajudar a administrar MySQL usando um navegador.</li>
+        <li>Cria bancos de dados e tabelas, insere/exibe/atualiza/remove registros das tabelas, etc.</li>
+      </ul>
+      <p>Vocês podem acessar o phpMyAdmin abrindo no navegador <a target="_blank" href="http://localhost/phpmyadmin/">http://localhost/phpmyadmin/</a></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Tipos de dados básicos em MySQL</h2>
+      <ul>
+        <li><b>VARCHAR</b>: armazena strings de tamanho variável de no máximo 255 caracteres.</li>
+        <li><b>TEXT</b>: armazena textos com no máximo 65535 caracteres.</li>
+        <li><b>INT</b>: armazena números inteiros.</li>
+        <li><b>FLOAT</b>: armazena números de ponto flutuante de precisão simples.</li>
+        <li><b>DATE</b>: armazena datas no formato AAAA/MM/DD.</li>
+        <li><b>TIME</b>: armazena horários no formato HH:MM:SS.</li>
+      </ul>
+      <p><a href="http://www.rcoli.com.br/2012/08/tipos-de-campos-no-mysql-saiba-como-escolher-o-tipo-correto/">Mais informações sobre tipos de dados em MySQL.</a></p>
+    </div>
+
+    <div class="step basic">
+      <h2>Conexão com o banco de dados</h2>
+      <pre><code class="php">&lt;?php 
+  // conexao.php
+  $servidor = "localhost";  // Endereço do servidor
+  $usuario = "root";        // Nome do usuário de acesso ao servidor
+  $senha = "";              // Senha do usuário de acesso ao servidor
+  $banco = "bdUsuario";     // Nome do banco de dados que será manipulado
+
+  // Executa conexão com o servidor
+  $conexao = mysqli_connect($servidor, $usuario, $senha)
+            or die("Não foi possível conectar-se ao servidor. Erro: " . mysqli_connect_error());
+
+  // Seleciona banco de dados
+  $selecao = mysqli_select_db($conexao, $banco)
+            or die("Não foi possível conectar-se ao banco. Erro: " . mysqli_error());
+
+  // Verifica se houve conexão com o banco no servidor
+  if ($selecionado) {
+    echo "Banco de dados selecionado com sucesso.";
+  }
+ ?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Realizando consultas SQL no banco</h2>
+      <p>Para realizar consultas SQL no banco de dados MySQL usando PHP utilizamos a função <code>mysqli_query(&lt;conexão&gt;, &lt;consulta SQL&gt;)</code>.</p>
+      <pre><code class="php">&lt;?php 
+  // lista-usuarios.php
+  $conexao = mysqli_connect("localhost", "root", "");
+  $selecao = mysqli_select_db($conexao, "bdUsuario");
+
+  echo "&lt;h1&gt;Lista de registros&lt;/h1&gt;";
+
+  $consulta = "select * from usuario";            // Consulta SQL
+  $resultado = mysqli_query($conexao, $consulta); // Resultado da consulta
+  $registro = mysqli_fetch_array($resultado);     // Resultado em forma de vetor associativo
+
+  $id = $registro["id"];
+  $nome = $registro["nome"];
+  $login = $registro["login"];
+  $senha = $registro["senha"];
+
+  echo "ID: $id | Nome: $nome | Login: $login | Senha: $senha &lt;br&gt;";
+ ?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Selecionando registros usando FOR</h2>
+      <pre><code class="php">&lt;?php 
+  ...
+  $consulta = "select * from usuario";  // Consulta SQL
+  $resultado = mysqli_query($conexao, $consulta); // Resultado da consulta
+  $num_linhas = mysqli_num_rows($resultado);
+
+  for ($i = 0; $i &lt; $num_linhas; $i++) {
+    $registro = mysqli_fetch_array($resultado);  // Resultado em forma de vetor associativo
+
+    $id = $registro["id"];
+    $nome = $registro["nome"];
+    $login = $registro["login"];
+    $senha = $registro["senha"];
+    
+    echo "ID: $id | Nome: $nome | Login: $login | Senha: $senha &lt;br&gt;";
+  }
+ ?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Exercício</h2>
+      <p>Crie um banco de dados com uma tabela os nomes dos estados da região nordeste e seu número de habitantes. Em seguida, crie uma página PHP para exibir todos os dados de cada estado na página.</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

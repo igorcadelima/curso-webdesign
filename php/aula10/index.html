@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 10</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 10 - Banco de dados MySQL (parte 3)
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+    
+    <div class="step basic">
+      <h2>Atividade</h2>
+      <p>
+        <b>Problema: </b>Pedrinho quer um sistema para sua locadora de filmes. Ele gostaria de armazenar os nomes, preços de aluguel, e sinopses dos filmes em um banco de dados. Como o preço pode variar com o tempo, mais filmes chegam a todo momento, e às vezes seus clientes perdem os filmes, Pedrinho gostaria de poder fazer isso usando formulários em um sistema web.
+      </p>
+    </div>
+
+    <div class="step basic">
+      <h2>Instruções</h2>
+      <ul>
+        <li>Crie um sistema com PHP e MySQL para resolver o problema de Pedrinho. Utilize <a href="esqueletolocadora.zip" download>esse esqueleto de modelo</a> para lhe ajudar a começar.</p>
+        </li>
+        <li>O banco de dados deverá ser nomeado como <i>bdLocadora</i>.</li>
+        <li>A tabela de filmes deverá ser nomeada <i>filme</i> e deverá conter os campos <i>id</i>, <i>titulo</i>, <i>precoLocacao</i>, e <i>sinopse</i>.</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>

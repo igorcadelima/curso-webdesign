@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <title>PHP e MySQL - Aula 09</title>
+  <link rel="stylesheet" href="http://yandex.st/highlightjs/8.0/styles/default.min.css">
+  <link rel="stylesheet" href="../../common/css/tomorrow_night_eighties.css">
+  <link href="../../common/css/custom.css" rel="stylesheet">
+</head>
+<body class="impress-not-supported">
+
+  <div id="impress">
+
+    <div class="step basic">
+      <h1>PHP e MySQL</h1>
+      <p>
+        Aula 09 - Banco de dados MySQL (parte 2)
+      </p>
+      <p>
+        Igor Conrado Alves de Lima - <a href="mailto:prof.igor@microcamp.com.br">prof.igor@microcamp.com.br</a>
+      </p>
+    </div>
+    
+    <div class="step basic">
+      <h2>A instrução include</h2>
+      <p>Na aula passada, tivemos que repetir várias vezes o mesmo código para estabelecer conexão com o banco de dados.</p>
+      <ul>
+        <li>Pergunta 1: <i>Teremos que repetir isso em todas as páginas dos nossos sites onde temos que fazer alguma manipulação com os dados do banco?</i></li>
+        <li>Pergunta 2: <i>E se tivermos que mudar o endereço do banco de dados? Teremos que fazer a alteração em todas as páginas?</i></li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>A instrução include</h2>
+      <p>A instrução <i>include</i> serve para incluir em uma página PHP o script de uma outra página PHP.</p>
+      <p>Sintaxe:</p>
+      <pre><code class="php">include "&lt; caminho / nome do arquivo &gt;";</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>A instrução include</h2>
+      <pre><code class="php">&lt;?php
+  // arquivo-geral.php
+  echo "Olá! Sou o código a ser incluído.";
+?&gt;</code></pre>
+      <pre><code class="php">&lt;?php
+  // pagina.php
+  echo "Está página inclui o código de arquivo-geral.php.";
+  include("arquivo-geral.php");
+?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Instruções para a aula de hoje</h2>
+      <ul>
+        <li>Na aula de hoje terminaremos de construir um mini-sistema de cadastro de alunos da onde poderemos listar, adicionar, excluir, e editar alunos.</li>
+        <li>Para começarmos, <a href="esqueletoprojetocadastro.zip" download>baixem o esqueleto do projeto</a> para começarmos a construir coisas novas baseado nele.</li>
+        <li>O código contém diversos comentários com instruções do que deve ser feito a fim de obter o resultado final do projeto.</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Arquivos do projeto</h2>
+      <p>O projeto a ser desenvolvido na aula de hoje está dividido da seguinte maneira:</p>
+      <ul>
+        <li><b>index.php</b>: página inicial</li>
+        <li><b>menu.php</b>: menu do site</li>
+        <li><b>conexao.php</b>: script de conexão com o BD</li>
+        <li><b>lista-alunos.php</b>: página com script que exibe lista de alunos</li>
+        <li><b>adicionar-aluno.php</b>: página com formulário para criar novo aluno</li>
+        <li><b>salvar-aluno.php</b>: script que trata submissão de formulário com dados de novo aluno para adicioná-lo ao BD</li>
+        <li><b>excluir-aluno.php</b>: script para excluir aluno do BD</li>
+        <li><b>editar-aluno.php</b>: página com formulário para editar aluno existente</li>
+        <li><b>atualizar-aluno.php</b>: script que trata submissão de formulário de edição de aluno para atualizar seus dados no BD</li>
+      </ul>
+    </div>
+
+    <div class="step basic">
+      <h2>Script de conexão</h2>
+      <p>Vamos fazer algumas alterações no script de conexão com o banco de dados que vimos na aula passada para podermos incluí-lo em todas as páginas que vamos criar nessa aula.</p>
+      <pre><code class="php">&lt;?php 
+  // conexao.php
+  $servidor = "localhost";  // Endereço do servidor
+  $usuario = "root";        // Nome do usuário de acesso ao servidor
+  $senha = "";              // Senha do usuário de acesso ao servidor
+  $banco = "bdUsuario";     // Nome do banco de dados que será manipulado
+
+  // Executa conexão com o servidor
+  $conexao = mysqli_connect($servidor, $usuario, $senha)
+            or die("Não foi possível conectar-se ao servidor. Erro: " . mysqli_connect_error());
+
+  // Seleciona banco de dados
+  $selecao = mysqli_select_db($conexao, $banco)
+            or die("Não foi possível conectar-se ao banco. Erro: " . mysqli_error());
+ ?&gt;</code></pre>
+    </div>
+
+    <div class="step basic">
+      <h2>Inserção de dados no banco de dados</h2>
+      <p>Em SQL, para inserir dados em uma tabela, nós utilizamos a instrução <b>INSERT</b>.</p>
+      <p>Sintaxe:</p>
+      <pre><code class="sql">INSERT INTO &lt;nome_da_tabela&gt; (&lt;campo1&gt;, &lt;campo2&gt;, ...) VALUES (&lt;valor_campo1&gt;, &lt;valor_campo2&gt;, ...)</code></pre>
+    </div>
+    <div class="step basic">
+      <h2>Inserção de dados no banco de dados</h2>
+      <p>Exemplo:</p>
+      <pre><code class="sql">INSERT INTO &lt;usuario&gt; (nome, login, senha) VALUES ('Igor Conrado', 'igor', '12345')</code></pre>
+      <p>Podemos ler esse comando da seguinte forma: insere na tabela usuario, nos campos nome, login, e senha, os valores 'Igor Conrado', 'igor', e '12345', respectivamente.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Função header</h2>
+      <p>Tecnicamente falando, <i>header</i> é uma função que que serve para enviar um cabeçalho HTTP.</p>
+      <p>No entanto, vamos usar <i>header</i> apenas para fazer redirecionamento de página da seguinte forma:</p>
+      <pre><code class="php">header("Location: pagina-destino.php")</code></pre>
+      <p class="note"><a target="_blank" href="http://wiki.locaweb.com/pt-br/Redirect_em_PHP">Leitura recomendada</a>.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Exclusão de dados</h2>
+      <p>Em SQL, para excluir linhas de registro de uma tabela, nós utilizamos a instrução <b>DELETE</b>.</p>
+      <p>Sintaxe:</p>
+      <pre><code class="sql">DELETE FROM &lt;nome_da_tabela&gt; WHERE &lt;condição&gt;</code></pre>
+      <p><strong>ATENÇÃO</strong>: uma condição sempre deve ser passada para a cláusula <u>WHERE</u> ou todos os registros serão excluídos.</p>
+    </div>
+    <div class="step basic">
+      <h2>Exclusão de dados</h2>
+      <p>Exemplo:</p>
+      <pre><code class="sql">DELETE FROM usuario WHERE id = 3</code></pre>
+      <p>Podemos ler esse comando da seguinte forma: exclui/deleta da tabela usuario o registro cujo id = 3.</p>
+    </div>
+
+    <div class="step basic">
+      <h2>Atualização de dados</h2>
+      <p>Em SQL, para atualizar determinados campos de um registro, nós utilizamos a instrução <b>UPDATE</b>.</p>
+      <p>Sintaxe:</p>
+      <pre><code class="sql">UPDATE &lt;nome_da_tabela&gt; SET &lt;campo1&gt; =  &lt;valor1&gt;, &lt;campo2&gt; =  &lt;valor2&gt;, ... WHERE &lt;condição&gt;</code></pre>
+      <p><strong>ATENÇÃO</strong>: uma condição sempre deve ser passada para a cláusula <u>WHERE</u> ou todos os registros serão atualizados com os dados passados.</p>
+    </div>
+    <div class="step basic">
+      <h2>Atualização de dados</h2>
+      <p>Exemplo:</p>
+      <pre><code class="sql">UPDATE usuario SET login =  'hakuna', senha =  'matata' WHERE id = 3</code></pre>
+      <p>Podemos ler esse comando da seguinte forma: atualiza a tabela usuario com o campo login = 'hakuna' e campo senha = 'matata' no registro cujo id = 3.</p>
+    </div>
+    <div class="step basic">
+      <h2>Resultado do projeto</h2>
+      <p>Para obter o resultado final do projeto desenvolvido nesta aula, baixe-o <a href="esqueletoprojetocadastro.zip">aqui</a>.</p>
+    </div>
+
+  </div>
+
+  <script src="../../common/bower_components/jquery/dist/jquery.min.js"></script>
+  <script src="../../common/bower_components/impress.js/js/impress.js"></script>
+  <script>
+    $(function() {
+      var y = 1000;
+      $('.step.basic').each(function(i) {
+        $(this).attr('data-y', y);
+        y += 1000;
+      });
+      impress().init();
+    });
+  </script>
+  <script src="http://yandex.st/highlightjs/8.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <script src="../../common/js/custom.js"></script>
+
+</body>
+</html>
